@@ -1,15 +1,13 @@
-const messages = {
-    fr: {
-        title: {
-            main_title: 'Marconil'
-        }
-    },
+import { fr } from "./fr"
+import { en } from "./en"
 
+let messages = {
+    fr: {
+        ...fr
+    },
     en: {
-        title: {
-            main_title: 'Marconil'
-        }
-    }
+        ...en
+    },
 }
 
 export { messages }
