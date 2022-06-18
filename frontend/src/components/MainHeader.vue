@@ -12,8 +12,8 @@
         </nav>
 
         <label class="switch-box">
-          <input @click="test" id='input' type="checkbox"/>
-          <span class="slider round"></span>
+            <input @click="handleSwitch" id='input' type="checkbox" />
+            <span class="slider round"></span>
         </label>
 
         <router-view />
@@ -23,16 +23,22 @@
 <script>
     export default {
         name: "MainHeader",
+
+        props: {
+            getSwitchStatus: {
+                type: Function
+            }
+        },
+
         methods: {
-            test () {
-                console.log('tadaa')
+            handleSwitch() {
+                this.getSwitchStatus(document.getElementById('input').checked)
             }
         },
     }
 </script>
 
 <style lang="scss" scoped>
-
     @import '../assets/styles/_variables.scss';
 
     nav {
@@ -61,13 +67,13 @@
                 width: 0;
                 height: 0;
 
-                &:checked + .slider {
+                &:checked+.slider {
                     background-color: $green;
                     border-color: transparent;
                 }
 
-                &:checked + .slider:before {
-                    transform: translate(calc(100% + 12px), -50%);
+                &:checked+.slider:before {
+                    transform: translate(calc(100% + 11.5px), -50%);
                     background-color: $white;
                 }
             }

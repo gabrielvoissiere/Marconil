@@ -1,14 +1,26 @@
 <template>
-  <MainHeader />
+  <MainHeader :getSwitchStatus="getSwitchStatus"/>
 </template>
 
 <script>
 import MainHeader from './components/MainHeader.vue'
 export default {
   name: 'app',
+  
+  data() {
+    return {
+      dark_mode: '',
+    }
+  },
+
   components: {
     MainHeader
-  }
+  },
+  methods: {
+    getSwitchStatus(switchStatus) {
+      this.dark_mode = switchStatus
+    }
+  },
 }
 </script>
 
