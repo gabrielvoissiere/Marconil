@@ -26,6 +26,16 @@ const en = {
                 title: 'Develop',
                 text: 'We will start by a call for know  each other better. Know you, make part (fait parti)   of the work for understand  precisely what you want. We will give you some advices,  and when you give us the  green light, we go !'
             }
+        },
+        who: {
+            title: 'With who ?',
+            subtitle: 'Portfolio, design website, e-commerce, profession libérale, factory, branding… ',
+        },
+        projects: {
+            title: 'Some of our projects'
+        },
+        value: {
+            title: 'We create value'
         }
     }
 }

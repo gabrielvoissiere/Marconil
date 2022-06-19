@@ -66,7 +66,7 @@ body.dark {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  width: 100vw;
+  width: calc(100vh - (2 * $gutter-size));
   display: flex;
   flex-direction: column;
   align-items: center;
