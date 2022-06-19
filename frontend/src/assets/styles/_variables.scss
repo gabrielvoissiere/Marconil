@@ -15,6 +15,7 @@ $font-size-small: 15px;
 $font-size-normal: 20px;
 $font-size-medium: 23px;
 $font-size-large: 45px;
+$font-size-l-large: 60px;
 $font-size-x-large: 80px;
 
 $font-size-title: 100px;
@@ -30,4 +31,15 @@ $gutter-size: 125px;
 $gap-size: 20px;
 
 // margin
+$margin-x-small: 10px;
+$margin-small: 20px;
+$margin-normal: 30px;
 $margin-medium: 40px;
+$margin-large: 60px;
+$margin-x-large: 132px;
+
+// style global
+
+.special_text {
+    color: $green;
+}
