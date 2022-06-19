@@ -22,7 +22,6 @@ export default {
   methods: {
     getSwitchStatus(switchStatus) {
       this.dark_mode = switchStatus
-      console.log(this.dark_mode);
       
       const body = document.body
 
