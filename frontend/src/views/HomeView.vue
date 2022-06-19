@@ -7,6 +7,10 @@
 <script>
 
 export default {
-  name: 'Home-page',
+  name: 'Home-page'
 }
 </script>
+
+<style lang="scss" scoped>
+  
+</style>

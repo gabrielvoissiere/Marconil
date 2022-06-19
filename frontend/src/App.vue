@@ -1,30 +1,75 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-  <router-view/>
+  <div>
+    <MainHeader :getSwitchStatus="getSwitchStatus"/>
+    <router-view />
+  </div>
 </template>
 
+<script>
+import MainHeader from './components/MainHeader.vue'
+export default {
+  name: 'app',
+  
+  data() {
+    return {
+      dark_mode: null,
+    }
+  },
+
+  components: {
+    MainHeader
+  },
+  methods: {
+    getSwitchStatus(switchStatus) {
+      this.dark_mode = switchStatus
+      console.log(this.dark_mode);
+      
+      const body = document.body
+
+      if (this.dark_mode === 'light') {
+        if (body.classList.contains('dark')) {
+          body.classList.add('light')
+          body.classList.remove('dark')
+        }
+      } else if (this.dark_mode === 'dark') {
+        if (body.classList.contains('light')) {
+          body.classList.add('dark')
+          body.classList.remove('light')
+        }
+      }
+    }
+  }
+}
+</script>
+
 <style lang="scss">
+@import './assets/styles/_variables.scss';
+
+body.light {
+  background-color: $white;
+  color: $black;
+
+  a {
+    color: $black;
+  }
+}
+
+body.dark {
+  background-color: $black;
+  color: $white;
+
+  a {
+    color: $white;
+  }
+}
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 </style>
