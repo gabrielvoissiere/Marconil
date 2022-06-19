@@ -1,12 +1,15 @@
 <template>
-  <div>
+  <div id="app-content">
     <MainHeader :getSwitchStatus="getSwitchStatus"/>
     <router-view />
+    <MainFooter />
   </div>
 </template>
 
 <script>
 import MainHeader from './components/MainHeader.vue'
+import MainFooter from './components/MainFooter.vue'
+
 export default {
   name: 'app',
   
@@ -17,7 +20,8 @@ export default {
   },
 
   components: {
-    MainHeader
+    MainHeader,
+    MainFooter
   },
   methods: {
     getSwitchStatus(switchStatus) {
@@ -60,15 +64,28 @@ body.dark {
   a {
     color: $white;
   }
+
+  .line {
+    filter: invert(100%);
+  }
+}
+
+@font-face {
+    font-family: 'Bigilla';
+    src: url('./assets/fonts/Bigilla.otf');
 }
 
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'Bigilla', Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  width: calc(100vh - (2 * $gutter-size));
-  display: flex;
+  width: 100vw;
+  
+  #app-content {
+    display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  }
 }
 </style>

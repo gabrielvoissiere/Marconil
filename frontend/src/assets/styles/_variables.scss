@@ -32,12 +32,14 @@ $gap-size: 20px;
 
 // margin
 $margin-x-small: 10px;
+$margin-small: 20px;
+$margin-normal: 30px;
 $margin-medium: 40px;
 $margin-large: 60px;
 $margin-x-large: 132px;
 
 // style global
 
-span.special_text {
+.special_text {
     color: $green;
 }

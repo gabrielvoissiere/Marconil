@@ -5,6 +5,7 @@
       <img src="../assets/images/svg/line-top.svg" alt="">
       <img src="../assets/images/svg/line-medium.svg" alt="">
       <img src="../assets/images/svg/line-bottom.svg" alt="">
+      <img src="../assets/images/svg/line-footer.svg" alt="">
     </div>
 
     <section id="above_the_fold">
@@ -135,12 +136,32 @@
       </div>
     </section>
 
+    <section id="contact">
+      <div class="title-box">
+        <div class="title">
+          <img src="../assets/images/svg/right-arrow.svg" alt="">
+          <h2 v-html="$t('home_page.contact.title')"></h2>
+        </div>
+        <div class="line" />
+      </div>
+      <h3 v-html="$t('home_page.contact.subtitle')"></h3>
+    </section>
+
+    <h3 id="sentence"><span class="special_text" v-html="$t('home_page.sentence.first')"></span><br><span
+        v-html="$t('home_page.sentence.second')"></span></h3>
+
+    <!-- <MainFooter /> -->
+
   </div>
 </template>
 
 <script>
+  // import MainFooter from '../components/MainFooter.vue'
   export default {
     name: 'Home-page',
+    components: {
+      // MainFooter
+    },
     mounted() {
       const above_the_fold = document.getElementById('above_the_fold')
       const header = document.querySelector('.header').offsetHeight
@@ -153,19 +174,29 @@
   @import '../assets/styles/_variables.scss';
 
   .home {
+    width: calc(100vw - (2 * $gutter-size));
 
     #line-background {
       position: absolute;
-      top: 200;
       left: 0;
       z-index: -5;
 
+      img {
+        position: relative;
+      }
+
+      img:first-child {
+        right: 100px;
+      }
+
       img:nth-child(2) {
-        margin-top: 300px;
+        margin-top: 100px;
+        right: 80px;
       }
 
       img:nth-child(3) {
-        margin-top: 800px;
+        margin-top: 500px;
+        right: 150px;
       }
     }
 
@@ -319,14 +350,8 @@
       flex-direction: column;
       justify-content: center;
 
-      h3 {
-        font-size: $font-size-medium;
-        color: $green;
-        text-align: center;
-      }
-
       .title {
-        font-size: $font-size-large;
+        font-size: $font-size-x-large;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -339,6 +364,49 @@
           margin-bottom: $margin-medium;
         }
       }
+    }
+
+    #contact {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      margin-bottom: calc($margin-large * 3);
+
+      h3 {
+        font-size: $font-size-medium;
+        color: $green;
+        text-align: left;
+        margin-left: 118px;
+      }
+
+      .title-box {
+        font-size: $font-size-large;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+
+        .title {
+          display: flex;
+
+          img {
+            width: 88px;
+            margin-right: $margin-normal;
+          }
+        }
+
+        .line {
+          height: 1px;
+          background-color: $black;
+          width: 247px;
+          margin-top: $margin-x-small;
+          margin-bottom: $margin-small;
+          margin-left: 118px;
+        }
+      }
+    }
+
+    #sentence {
+      font-size: $font-size-l-large;
     }
   }
 </style>

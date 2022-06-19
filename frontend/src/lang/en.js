@@ -2,6 +2,13 @@ const en = {
     title: {
         main_title: 'Marconil'
     },
+    header: {
+
+    },
+    footer: {
+        title: 'Marconil -<br>web design + web development',
+        contact: 'Contact'
+    },
     home_page: {
         above_the_fold: {
             title: 'is a web design and web/mobile <br> development agency based in the south of France ',
@@ -36,6 +43,14 @@ const en = {
         },
         value: {
             title: 'We create value'
+        },
+        contact: {
+            title: 'Contact us',
+            subtitle: 'We answer in 4 hours',
+        },
+        sentence: {
+            first: 'Be careful,',
+            second: 'only people with ambition can work with us.',
         }
     }
 }
