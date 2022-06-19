@@ -1,12 +1,12 @@
 <template>
     <div class="header">
-        <router-link to="/">
+        <router-link id="title-box" to="/">
             <h1>Marconil - web design web development device development</h1>
             <p>ウェブデザイン ウェブ開発</p>
         </router-link>
 
         <nav>
-            <router-link to="/about">About</router-link>
+            <router-link to="/about">about</router-link>
             <router-link to="/work">work</router-link>
             <router-link to="/contact">contact</router-link>
         </nav>
@@ -15,8 +15,6 @@
             <input @click="handleSwitch" id='input' type="checkbox" />
             <span class="slider round"></span>
         </label>
-
-        <router-view />
     </div>
 </template>
 
@@ -32,7 +30,11 @@
 
         methods: {
             handleSwitch() {
-                this.getSwitchStatus(document.getElementById('input').checked)
+                if (document.getElementById('input').checked) {
+                    this.getSwitchStatus('dark')
+                } else {
+                    this.getSwitchStatus('light')
+                }
             }
         },
     }
@@ -41,12 +43,35 @@
 <style lang="scss" scoped>
     @import '../assets/styles/_variables.scss';
 
+    .header {
+        margin-top: $margin-medium;
+        display: flex;
+        justify-content: space-between;
+        width: calc(100vw - ($gutter-size * 2));
+    }
+
+    #title-box {
+        text-decoration: none;
+        text-align: left;
+
+        h1 {
+            font-size: $font-size-normal;
+            font-weight: $normal;
+        }
+
+        p {
+            color: $green;
+        }
+    }
+
     nav {
-        padding: 30px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
 
         a {
-            font-weight: bold;
-            color: #2c3e50;
+            text-decoration: none;
+            font-size: $font-size-normal;
 
             &.router-link-exact-active {
                 color: #42b983;
@@ -87,7 +112,7 @@
                 bottom: 0;
                 background-color: $white;
                 border: 1px solid $black;
-                transition: .4s;
+                transition: 400ms;
 
                 &:before {
                     position: absolute;

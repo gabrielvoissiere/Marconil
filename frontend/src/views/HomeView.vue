@@ -10,3 +10,7 @@ export default {
   name: 'Home-page'
 }
 </script>
+
+<style lang="scss" scoped>
+  
+</style>
