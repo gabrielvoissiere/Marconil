@@ -262,7 +262,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-        font-family: $title-font;
+            font-family: $title-font;
 
             .line {
               height: 1px;
