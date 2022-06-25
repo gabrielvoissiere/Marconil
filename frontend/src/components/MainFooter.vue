@@ -10,7 +10,7 @@
                 <a :href="'mailto:'+email">Marconil@gmail.com</a>
             </div>
         </div>
-        <p id="bottom-text">ML.IRJJTCT-2022</p>
+        <img id="bottom-text" src="../assets/images/svg/footer-bottom-text.svg" alt=""/>
     </div>
 </template>
 
@@ -64,10 +64,8 @@ export default {
         }
 
         #bottom-text {
-            font-size: calc(100vw / 8.5);
-            font-weight: $bold;
             position: absolute;
-            bottom: -65px;
+            bottom: -10%;
             width: 100vw;
             font-family: $title-font;
         }
