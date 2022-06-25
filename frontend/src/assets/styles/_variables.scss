@@ -38,8 +38,21 @@ $margin-medium: 40px;
 $margin-large: 60px;
 $margin-x-large: 132px;
 
-// style global
+// typos
+@font-face {
+    font-family: 'Bigilla';
+    src: local('../fonts/Bigilla-Bold.otf') format('otf');
+}
 
+@font-face {
+    font-family: 'Montserrat';
+    src: local('../fonts/Montserrat-Regular.ttf') format('otf');
+}
+
+$title-font: 'Bigilla';
+$text-font: 'Montserrat';
+
+// style global
 .special_text {
     color: $green;
 }

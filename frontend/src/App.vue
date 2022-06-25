@@ -70,22 +70,17 @@ body.dark {
   }
 }
 
-@font-face {
-    font-family: 'Bigilla';
-    src: url('./assets/fonts/Bigilla.otf');
-}
-
 #app {
-  font-family: 'Bigilla', Avenir, Helvetica, Arial, sans-serif;
+  font-family: $text-font, Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   width: 100vw;
   
   #app-content {
     display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
 }
 </style>
