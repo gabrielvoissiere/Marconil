@@ -208,6 +208,7 @@
 
       h1 {
         font-size: $font-size-l-large;
+        font-family: $title-font;
       }
 
       button {
@@ -217,6 +218,7 @@
         color: $white;
         font-size: $font-size-normal;
         margin-top: 20px;
+        font-family: $text-font;
       }
     }
 
@@ -225,6 +227,7 @@
       h2 {
         font-size: $font-size-x-large;
         text-align: right;
+        font-family: $title-font;
       }
 
       h3 {
@@ -250,6 +253,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+        font-family: $title-font;
 
             .line {
               height: 1px;
@@ -280,6 +284,7 @@
         display: flex;
         flex-direction: column;
         align-items: center;
+        font-family: $title-font;
 
         .line {
           height: 1px;
@@ -298,6 +303,7 @@
         display: flex;
         flex-direction: column;
         align-items: flex-start;
+        font-family: $title-font;
 
         .line {
           height: 1px;
@@ -355,6 +361,7 @@
         display: flex;
         flex-direction: column;
         align-items: center;
+        font-family: $title-font;
 
         .line {
           height: 1px;
@@ -387,6 +394,7 @@
 
         .title {
           display: flex;
+        font-family: $title-font;
 
           img {
             width: 88px;
@@ -407,6 +415,7 @@
 
     #sentence {
       font-size: $font-size-l-large;
+        font-family: $title-font;
     }
   }
 </style>
