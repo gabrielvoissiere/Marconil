@@ -218,7 +218,7 @@
         color: $white;
         font-size: $font-size-normal;
         margin-top: 20px;
-        font-family: $text-font;
+        // font-family: $text-font;
       }
 
       .background-line {
@@ -363,6 +363,11 @@
                 text-decoration: underline;
                 font-size: $font-size-small;
                 font-style: italic;
+
+                &:hover {
+                  font-style: normal;
+                  color: $green;
+                }
               }
             }
           }
@@ -409,7 +414,7 @@
       justify-content: center;
       margin-bottom: calc($margin-large * 3);
       width: calc(100vw - (2 * $gutter-size));
-      // background-color: $white;
+      transition: 300ms ease-in-out;
 
       h3 {
         font-size: $font-size-medium;
@@ -431,6 +436,7 @@
           img {
             width: 88px;
             margin-right: $margin-normal;
+      transition: 300ms ease-in-out;
           }
         }
 
@@ -442,6 +448,14 @@
           margin-bottom: $margin-small;
           margin-left: 118px;
         }
+      }
+
+      &:hover {
+        transform: translateX(2%);
+      }
+
+      &:hover img {
+        transform: translateX(-20%);
       }
     }
 

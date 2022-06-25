@@ -75,7 +75,7 @@ body.dark {
 }
 
 #app {
-  font-family: $text-font, Avenir, Helvetica, Arial, sans-serif;
+  // font-family: 'Montserrat', Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   width: 100vw;

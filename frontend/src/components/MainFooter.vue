@@ -65,7 +65,6 @@ export default {
 
         #bottom-text {
             font-size: calc(100vw / 8.5);
-            // font-size: $font-size-x-title;
             font-weight: $bold;
             position: absolute;
             bottom: -65px;
