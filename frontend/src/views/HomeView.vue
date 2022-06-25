@@ -1,16 +1,14 @@
 <template>
   <div class="home">
 
-    <div id="line-background">
-      <img src="../assets/images/svg/line-top.svg" alt="">
-      <img src="../assets/images/svg/line-medium.svg" alt="">
-      <img src="../assets/images/svg/line-bottom.svg" alt="">
+    <!-- <div id="line-background">
       <img src="../assets/images/svg/line-footer.svg" alt="">
-    </div>
+    </div> -->
 
     <section id="above_the_fold">
       <h1><span class="special_text">Marconil</span> <span v-html="$t('home_page.above_the_fold.title')"></span></h1>
       <button v-html="$t('home_page.above_the_fold.btn')"></button>
+      <img class="background-line" src="../assets/images/svg/line-top.svg" alt="">
     </section>
 
     <section id="work">
@@ -60,6 +58,7 @@
         <div class="line" />
       </div>
       <h3 v-html="$t('home_page.who.subtitle')"></h3>
+      <img class="background-line" src="../assets/images/svg/line-medium.svg" alt="">
     </section>
 
     <section id="projects">
@@ -134,6 +133,7 @@
         <h2 v-html="$t('home_page.value.title')"></h2>
         <div class="line" />
       </div>
+      <img class="background-line" src="../assets/images/svg/line-bottom.svg" alt="">
     </section>
 
     <section id="contact">
@@ -156,12 +156,8 @@
 </template>
 
 <script>
-  // import MainFooter from '../components/MainFooter.vue'
   export default {
     name: 'Home-page',
-    components: {
-      // MainFooter
-    },
     mounted() {
       const above_the_fold = document.getElementById('above_the_fold')
       const header = document.querySelector('.header').offsetHeight
@@ -174,7 +170,9 @@
   @import '../assets/styles/_variables.scss';
 
   .home {
-    width: calc(100vw - (2 * $gutter-size));
+    display: flex;
+    flex-direction: column;
+    align-content: center;
 
     #line-background {
       position: absolute;
@@ -190,12 +188,12 @@
       }
 
       img:nth-child(2) {
-        margin-top: 100px;
+        margin-top: 35vh;
         right: 80px;
       }
 
       img:nth-child(3) {
-        margin-top: 500px;
+        margin-top: 60vh;
         right: 150px;
       }
     }
@@ -205,6 +203,8 @@
       flex-direction: column;
       justify-content: center;
       align-items: flex-start;
+      position: relative;
+      width: calc(100vw - (2 * $gutter-size));
 
       h1 {
         font-size: $font-size-l-large;
@@ -220,9 +220,18 @@
         margin-top: 20px;
         font-family: $text-font;
       }
+
+      .background-line {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100vw;
+      }
     }
 
     #work {
+      width: calc(100vw - (2 * $gutter-size));
 
       h2 {
         font-size: $font-size-x-large;
@@ -272,6 +281,8 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
+      width: calc(100vw - (2 * $gutter-size));
+      position: relative;
 
       h3 {
         font-size: $font-size-medium;
@@ -294,9 +305,18 @@
           margin-bottom: $margin-medium;
         }
       }
+
+      .background-line {
+        position: absolute;
+        width: 100vw;
+        top: -150px;
+        left: -200px;
+        z-index: -10;
+      }
     }
 
     #projects {
+      width: calc(100vw - (2 * $gutter-size));
 
       .title {
         font-size: $font-size-large;
@@ -351,10 +371,12 @@
     }
 
     #value {
+      position: relative;
       height: 100vh;
       display: flex;
       flex-direction: column;
       justify-content: center;
+      width: calc(100vw - (2 * $gutter-size));
 
       .title {
         font-size: $font-size-x-large;
@@ -371,6 +393,14 @@
           margin-bottom: $margin-medium;
         }
       }
+
+      .background-line {
+        position: absolute;
+        width: 100vw;
+        top: -335px;
+        left: -500px;
+        z-index: -10;
+      }
     }
 
     #contact {
@@ -378,6 +408,8 @@
       flex-direction: column;
       justify-content: center;
       margin-bottom: calc($margin-large * 3);
+      width: calc(100vw - (2 * $gutter-size));
+      background-color: $white;
 
       h3 {
         font-size: $font-size-medium;
@@ -414,8 +446,9 @@
     }
 
     #sentence {
+      width: calc(100vw - (2 * $gutter-size));
       font-size: $font-size-l-large;
-        font-family: $title-font;
+      font-family: $title-font;
     }
   }
 </style>
