@@ -1,30 +1,90 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-  <router-view/>
+  <div id="app-content">
+    <MainHeader :getSwitchStatus="getSwitchStatus"/>
+    <router-view />
+    <MainFooter />
+  </div>
 </template>
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script>
+import MainHeader from './components/MainHeader.vue'
+import MainFooter from './components/MainFooter.vue'
 
-nav {
-  padding: 30px;
+export default {
+  name: 'app',
+  
+  data() {
+    return {
+      dark_mode: null,
+    }
+  },
+
+  components: {
+    MainHeader,
+    MainFooter
+  },
+  methods: {
+    getSwitchStatus(switchStatus) {
+      this.dark_mode = switchStatus
+      
+      const body = document.body
+
+      if (this.dark_mode === 'light') {
+        if (body.classList.contains('dark')) {
+          body.classList.add('light')
+          body.classList.remove('dark')
+        }
+      } else if (this.dark_mode === 'dark') {
+        if (body.classList.contains('light')) {
+          body.classList.add('dark')
+          body.classList.remove('light')
+        }
+      }
+    }
+  }
+}
+</script>
+
+<style lang="scss">
+@import './assets/styles/_variables.scss';
+
+body.light {
+  background-color: $white;
+  color: $black;
 
   a {
-    font-weight: bold;
-    color: #2c3e50;
+    color: $black;
+  }
+}
 
-    &.router-link-exact-active {
-      color: #42b983;
-    }
+body.dark {
+  background-color: $black;
+  color: $white;
+
+  a {
+    color: $white;
+  }
+
+  .line {
+    filter: invert(100%);
+  }
+
+  img.dark {
+    filter: invert(100%);
+  }
+}
+
+#app {
+  // font-family: 'Montserrat', Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  width: 100vw;
+  
+  #app-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
 }
 </style>

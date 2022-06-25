@@ -1,0 +1,43 @@
+::-webkit-scrollbar {
+    display: none;
+}
+
+html {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    scroll-behavior: smooth;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+body,
+input,
+button {
+    margin: 0;
+}
+
+/* typos */
+@font-face {
+    font-family: 'Bigilla-bold';
+    src: url('./fonts/Bigilla.otf');
+}
+
+@font-face {
+    font-family: 'Montserrat-light';
+    src: url('./fonts/Montserrat-Light.ttf');
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: 200ms;
+    font-family: 'Montserrat-light', Arial, Helvetica, sans-serif;
+}
