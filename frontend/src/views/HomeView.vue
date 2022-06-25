@@ -218,7 +218,6 @@
         color: $white;
         font-size: $font-size-normal;
         margin-top: 20px;
-        // font-family: $text-font;
       }
 
       .background-line {
@@ -262,7 +261,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-        font-family: $title-font;
+            font-family: $title-font;
 
             .line {
               height: 1px;
