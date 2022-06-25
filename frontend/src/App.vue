@@ -68,6 +68,10 @@ body.dark {
   .line {
     filter: invert(100%);
   }
+
+  img.dark {
+    filter: invert(100%);
+  }
 }
 
 #app {

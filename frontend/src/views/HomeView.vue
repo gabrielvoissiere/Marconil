@@ -139,7 +139,7 @@
     <section id="contact">
       <div class="title-box">
         <div class="title">
-          <img src="../assets/images/svg/right-arrow.svg" alt="">
+          <img class="dark" src="../assets/images/svg/right-arrow.svg" alt="">
           <h2 v-html="$t('home_page.contact.title')"></h2>
         </div>
         <div class="line" />
@@ -409,7 +409,7 @@
       justify-content: center;
       margin-bottom: calc($margin-large * 3);
       width: calc(100vw - (2 * $gutter-size));
-      background-color: $white;
+      // background-color: $white;
 
       h3 {
         font-size: $font-size-medium;
