@@ -218,7 +218,6 @@
         color: $white;
         font-size: $font-size-normal;
         margin-top: 20px;
-        // font-family: $text-font;
       }
 
       .background-line {
