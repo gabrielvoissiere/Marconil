@@ -8,7 +8,7 @@ import router from './router'
 import store from './store'
 
 const i18n = createI18n({
-    locale: 'en',
+    locale: 'fr',
     fallbackLocale: 'fr',
     messages
 })
