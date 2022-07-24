@@ -78,7 +78,7 @@
             </div>
             <div class="right">
               <p>2022</p>
-              <a>En savoir plus</a>
+              <router-link class="project-link" to="/project">En savoir plus</router-link>
             </div>
           </div>
         </div>
@@ -92,7 +92,7 @@
             </div>
             <div class="right">
               <p>2022</p>
-              <a>En savoir plus</a>
+              <router-link class="project-link" to="/project">En savoir plus</router-link>
             </div>
           </div>
         </div>
@@ -106,7 +106,7 @@
             </div>
             <div class="right">
               <p>2022</p>
-              <a>En savoir plus</a>
+              <router-link class="project-link" to="/project">En savoir plus</router-link>
             </div>
           </div>
         </div>
@@ -120,7 +120,7 @@
             </div>
             <div class="right">
               <p>2022</p>
-              <a>En savoir plus</a>
+              <router-link class="project-link" to="/project">En savoir plus</router-link>
             </div>
           </div>
         </div>
@@ -358,7 +358,8 @@
             .right {
               text-align: right;
 
-              a {
+              .project-link
+               {
                 text-decoration: underline;
                 font-size: $font-size-small;
                 font-style: italic;
@@ -366,6 +367,7 @@
                 &:hover {
                   font-style: normal;
                   color: $green;
+                  cursor: pointer;
                 }
               }
             }
