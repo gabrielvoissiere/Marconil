@@ -9,7 +9,7 @@ import store from './store'
 
 const i18n = createI18n({
     locale: 'fr',
-    fallbackLocale: 'fr',
+    fallbackLocale: 'en',
     messages
 })
 

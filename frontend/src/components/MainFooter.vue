@@ -7,7 +7,8 @@
             </div>
             <div class="text-box">
                 <span  class="special_text" v-html="$t('footer.contact')"></span>
-                <a :href="'mailto:'+email">Marconil@gmail.com</a>
+                <a :href="'tel:'+phone">{{ phone }}</a>
+                <a :href="'mailto:'+email">{{ email }}</a>
             </div>
         </div>
         <img id="bottom-text" src="../assets/images/svg/footer-bottom-text.svg" alt=""/>
@@ -19,7 +20,8 @@ export default {
     name: 'MainFooter',
     data() {
         return {
-            email: 'Marconil@gmail.com'
+            email: 'nezaagency@gmail.com',
+            phone: '+33 (0) 7 62 61 07 41'
         }
     },
 }
@@ -30,7 +32,7 @@ export default {
     .footer {
         margin-top: $margin-medium;
         width: 100vw;
-        height: 550px;
+        height: 400px;
         background-color: $black;
         color: white;
         font-size: $font-size-normal;
@@ -66,6 +68,7 @@ export default {
         #bottom-text {
             position: absolute;
             bottom: -10%;
+            left: 15px;
             width: 100vw;
             font-family: $title-font;
         }

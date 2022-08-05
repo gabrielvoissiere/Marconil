@@ -1,14 +1,14 @@
 <template>
     <div class="header">
         <router-link id="title-box" to="/">
-            <h1>Marconil - web design web development device development</h1>
+            <h1 v-html="$t('header.title')"></h1>
             <p>ウェブデザイン ウェブ開発</p>
         </router-link>
 
         <nav>
-            <router-link to="/about">about</router-link>
-            <router-link to="/work">work</router-link>
-            <router-link to="/contact">contact</router-link>
+            <router-link to="/about" v-html="$t('header.nav.first')"></router-link>
+            <router-link to="/work" v-html="$t('header.nav.second')"></router-link>
+            <router-link to="/contact" v-html="$t('header.nav.third')"></router-link>
         </nav>
 
         <label class="switch-box">
@@ -75,6 +75,11 @@
 
             &.router-link-exact-active {
                 color: #42b983;
+            }
+
+            &:hover {
+                color: $green;
+                text-decoration: underline;
             }
         }
     }
