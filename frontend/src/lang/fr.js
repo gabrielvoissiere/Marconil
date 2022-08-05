@@ -1,10 +1,10 @@
 const fr = {
     title: {
-        main_title: "Marconil"
+        main_title: "Neza"
     },
     header: {},
     footer: {
-        title: "Marconil -<br>web design + développement web",
+        title: "Neza -<br>web design + développement web",
         contact: "Contact"
     },
     home_page: {

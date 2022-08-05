@@ -6,7 +6,7 @@
     </div> -->
 
     <section id="above_the_fold">
-      <h1><span class="special_text">Marconil</span> <span v-html="$t('home_page.above_the_fold.title')"></span></h1>
+      <h1><span class="special_text">Neza</span> <span v-html="$t('home_page.above_the_fold.title')"></span></h1>
       <button v-html="$t('home_page.above_the_fold.btn')"></button>
       <img class="background-line" src="../assets/images/svg/line-top.svg" alt="">
     </section>

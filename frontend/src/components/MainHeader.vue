@@ -1,7 +1,7 @@
 <template>
     <div class="header">
         <router-link id="title-box" to="/">
-            <h1>Marconil - web design web development device development</h1>
+            <h1>Neza - web design web development device development</h1>
             <p>ウェブデザイン ウェブ開発</p>
         </router-link>
 
