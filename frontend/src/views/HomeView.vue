@@ -7,7 +7,7 @@
 
     <section id="above_the_fold">
       <h1><span class="special_text">Neza</span> <span v-html="$t('home_page.above_the_fold.title')"></span></h1>
-      <button v-html="$t('home_page.above_the_fold.btn')"></button>
+      <a href="mailto:nezaagency@gmail.com" v-html="$t('home_page.above_the_fold.btn')"></a>
       <img class="background-line" src="../assets/images/svg/line-top.svg" alt="">
     </section>
 
@@ -57,7 +57,6 @@
         <h2 v-html="$t('home_page.who.title')"></h2>
         <div class="line" />
       </div>
-      <h3 v-html="$t('home_page.who.subtitle')"></h3>
       <img class="background-line" src="../assets/images/svg/line-medium.svg" alt="">
     </section>
 
@@ -133,16 +132,16 @@
         <h2 v-html="$t('home_page.value.title')"></h2>
         <div class="line" />
       </div>
-      <img class="background-line" src="../assets/images/svg/line-bottom.svg" alt="">
+      <!-- <img class="background-line" src="../assets/images/svg/line-bottom.svg" alt=""> -->
     </section>
 
     <section id="contact">
       <div class="title-box">
         <div class="title">
           <img class="dark" src="../assets/images/svg/right-arrow.svg" alt="">
-          <h2 v-html="$t('home_page.contact.title')"></h2>
+          <a href='mailto:nezaagency@gmail.com' v-html="$t('home_page.contact.title')"></a>
         </div>
-        <div class="line" />
+        <div class="line"/>
       </div>
       <h3 v-html="$t('home_page.contact.subtitle')"></h3>
     </section>
@@ -207,18 +206,23 @@ export default {
     width: calc(100vw - (2 * $gutter-size));
 
     h1 {
-      font-size: $font-size-l-large;
+      font-size: 60px;
       font-family: $title-font;
       font-weight: 500;
     }
 
-    button {
+    a {
       background-color: $green;
       padding: 15px 25px;
       border: none;
       color: $white;
       font-size: $font-size-normal;
       margin-top: 20px;
+      font-family: 'Montserrat-regular';
+      font-size: 18px;
+      font-weight: 300;
+      text-decoration: none;
+      z-index: 100000;
     }
 
     .background-line {
@@ -244,6 +248,7 @@ export default {
       font-size: $font-size-medium;
       color: $green;
       text-align: right;
+      font-weight: 300;
     }
 
     .work-box {
@@ -283,7 +288,7 @@ export default {
   }
 
   #who {
-    height: 100vh;
+    height: 110vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -291,9 +296,8 @@ export default {
     position: relative;
     font-weight: 300;
 
-    h3 {
-      font-size: $font-size-medium;
-      color: $green;
+    h2 {
+      font-size: 50px;
       text-align: center;
     }
 
@@ -393,22 +397,18 @@ export default {
 
   #value {
     position: relative;
-    height: 100vh;
+    height: 120vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     width: calc(100vw - (2 * $gutter-size));
 
     .title {
-      font-size: $font-size-x-large;
+      font-size: 65px;
       display: flex;
       flex-direction: column;
       align-items: center;
       font-family: $title-font;
-
-      h2 {
-        font-weight: 300;
-      }
 
       .line {
         height: 1px;
@@ -423,7 +423,7 @@ export default {
       position: absolute;
       width: 100vw;
       top: -335px;
-      left: -500px;
+      left: -300px;
       z-index: -10;
     }
   }
@@ -457,6 +457,10 @@ export default {
         display: flex;
         font-family: $title-font;
 
+        a {
+          text-decoration: none;
+        }
+
         img {
           width: 88px;
           margin-right: $margin-normal;
@@ -485,7 +489,7 @@ export default {
 
   #sentence {
     width: calc(100vw - (2 * $gutter-size));
-    font-size: $font-size-l-large;
+    font-size: $font-size-large;
     font-weight: 300;
     font-family: $title-font;
   }

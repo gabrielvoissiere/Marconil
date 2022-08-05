@@ -24,12 +24,17 @@ button {
 /* typos */
 @font-face {
     font-family: 'Bigilla-bold';
-    src: url('./fonts/Bigilla.otf');
+    src: url('./fonts/Bigilla-Bold.otf');
 }
 
 @font-face {
     font-family: 'Montserrat-light';
     src: url('./fonts/Montserrat-Light.ttf');
+}
+
+@font-face {
+    font-family: 'Montserrat-regular';
+    src: url('./fonts/Montserrat-Regular.ttf');
 }
 
 body {
