@@ -1,12 +1,12 @@
 const en = {
     title: {
-        main_title: 'Marconil'
+        main_title: 'Neza'
     },
     header: {
 
     },
     footer: {
-        title: 'Marconil -<br>web design + web development',
+        title: 'Neza -<br>web design + web development',
         contact: 'Contact'
     },
     home_page: {
