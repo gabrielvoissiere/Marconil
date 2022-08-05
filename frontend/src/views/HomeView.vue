@@ -156,314 +156,338 @@
 </template>
 
 <script>
-  export default {
-    name: 'Home-page',
-    mounted() {
-      const above_the_fold = document.getElementById('above_the_fold')
-      const header = document.querySelector('.header').offsetHeight
-      above_the_fold.style.height = `calc(100vh - ${header}px - 40px)`
-    },
-  }
+export default {
+  name: 'Home-page',
+  mounted() {
+    const above_the_fold = document.getElementById('above_the_fold')
+    const header = document.querySelector('.header').offsetHeight
+    above_the_fold.style.height = `calc(100vh - ${header}px - 40px)`
+  },
+}
 </script>
 
 <style lang="scss" scoped>
-  @import '../assets/styles/_variables.scss';
+@import '../assets/styles/_variables.scss';
 
-  .home {
+.home {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+
+  #line-background {
+    position: absolute;
+    left: 0;
+    z-index: -5;
+
+    img {
+      position: relative;
+    }
+
+    img:first-child {
+      right: 100px;
+    }
+
+    img:nth-child(2) {
+      margin-top: 35vh;
+      right: 80px;
+    }
+
+    img:nth-child(3) {
+      margin-top: 60vh;
+      right: 150px;
+    }
+  }
+
+  #above_the_fold {
     display: flex;
     flex-direction: column;
-    align-content: center;
+    justify-content: center;
+    align-items: flex-start;
+    position: relative;
+    width: calc(100vw - (2 * $gutter-size));
 
-    #line-background {
+    h1 {
+      font-size: $font-size-l-large;
+      font-family: $title-font;
+      font-weight: 500;
+    }
+
+    button {
+      background-color: $green;
+      padding: 15px 25px;
+      border: none;
+      color: $white;
+      font-size: $font-size-normal;
+      margin-top: 20px;
+    }
+
+    .background-line {
       position: absolute;
-      left: 0;
-      z-index: -5;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100vw;
+    }
+  }
 
-      img {
-        position: relative;
-      }
+  #work {
+    width: calc(100vw - (2 * $gutter-size));
 
-      img:first-child {
-        right: 100px;
-      }
-
-      img:nth-child(2) {
-        margin-top: 35vh;
-        right: 80px;
-      }
-
-      img:nth-child(3) {
-        margin-top: 60vh;
-        right: 150px;
-      }
+    h2 {
+      font-size: $font-size-x-large;
+      text-align: right;
+      font-family: $title-font;
+      font-weight: 500;
     }
 
-    #above_the_fold {
+    h3 {
+      font-size: $font-size-medium;
+      color: $green;
+      text-align: right;
+    }
+
+    .work-box {
       display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: flex-start;
-      position: relative;
-      width: calc(100vw - (2 * $gutter-size));
+      justify-content: space-between;
+      margin-top: $margin-x-large;
 
-      h1 {
-        font-size: $font-size-l-large;
-        font-family: $title-font;
-      }
-
-      button {
-        background-color: $green;
-        padding: 15px 25px;
-        border: none;
-        color: $white;
-        font-size: $font-size-normal;
-        margin-top: 20px;
-      }
-
-      .background-line {
-        position: absolute;
-        top: 0;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 100vw;
-      }
-    }
-
-    #work {
-      width: calc(100vw - (2 * $gutter-size));
-
-      h2 {
-        font-size: $font-size-x-large;
-        text-align: right;
-        font-family: $title-font;
-      }
-
-      h3 {
-        font-size: $font-size-medium;
-        color: $green;
-        text-align: right;
-      }
-
-      .work-box {
+      .box {
         display: flex;
-        justify-content: space-between;
-        margin-top: $margin-x-large;
-
-        .box {
-          display: flex;
-          flex-direction: column;
-          width: 22%;
-          text-align: center;
-          font-size: $font-size-normal;
-
-          .title {
-            font-size: $font-size-large;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            font-family: $title-font;
-
-            .line {
-              height: 1px;
-              background-color: $black;
-              width: 123px;
-              margin-top: $margin-x-small;
-              margin-bottom: $margin-large;
-            }
-          }
-        }
-      }
-    }
-
-    #who {
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      width: calc(100vw - (2 * $gutter-size));
-      position: relative;
-
-      h3 {
-        font-size: $font-size-medium;
-        color: $green;
+        flex-direction: column;
+        width: 22%;
         text-align: center;
-      }
+        font-size: $font-size-normal;
 
-      .title {
-        font-size: $font-size-large;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        font-family: $title-font;
-
-        .line {
-          height: 1px;
-          background-color: $black;
-          width: 178px;
-          margin-top: $margin-x-small;
-          margin-bottom: $margin-medium;
-        }
-      }
-
-      .background-line {
-        position: absolute;
-        width: 100vw;
-        top: -150px;
-        left: -200px;
-        z-index: -10;
-      }
-    }
-
-    #projects {
-      width: calc(100vw - (2 * $gutter-size));
-
-      .title {
-        font-size: $font-size-large;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        font-family: $title-font;
-
-        .line {
-          height: 1px;
-          background-color: $black;
-          width: 260px;
-          margin-top: $margin-x-small;
-          margin-bottom: $margin-medium;
-        }
-      }
-
-      .grid {
-        display: grid;
-        grid-template-columns: repeat(2, 0.5fr);
-        // gap: $gap-size;
-
-        .grid-elm {
+        .title {
+          font-size: $font-size-large;
           display: flex;
           flex-direction: column;
           align-items: center;
+          font-weight: 300;
+          font-family: $title-font;
 
-          img {
-            object-fit: cover;
-            width: 100%;
+          h4 {
+            font-weight: 300;
           }
 
-          .legend {
-            width: 75%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: $font-size-normal;
+          .line {
+            height: 1px;
+            background-color: $black;
+            width: 123px;
+            margin-top: $margin-x-small;
+            margin-bottom: $margin-large;
+          }
+        }
+      }
+    }
+  }
 
-            .right {
-              text-align: right;
+  #who {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: calc(100vw - (2 * $gutter-size));
+    position: relative;
+    font-weight: 300;
 
-              .project-link
-               {
-                text-decoration: underline;
-                font-size: $font-size-small;
-                font-style: italic;
+    h3 {
+      font-size: $font-size-medium;
+      color: $green;
+      text-align: center;
+    }
 
-                &:hover {
-                  font-style: normal;
-                  color: $green;
-                  cursor: pointer;
-                }
+    .title {
+      font-size: $font-size-large;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-family: $title-font;
+
+      h2 {
+        font-weight: 300;
+      }
+
+      .line {
+        height: 1px;
+        background-color: $black;
+        width: 178px;
+        margin-top: $margin-x-small;
+        margin-bottom: $margin-medium;
+      }
+    }
+
+    .background-line {
+      position: absolute;
+      width: 100vw;
+      top: -150px;
+      left: -200px;
+      z-index: -10;
+    }
+  }
+
+  #projects {
+    width: calc(100vw - (2 * $gutter-size));
+
+    .title {
+      font-size: $font-size-large;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      font-family: $title-font;
+
+      h2 {
+        font-weight: 300;
+      }
+
+      .line {
+        height: 1px;
+        background-color: $black;
+        width: 260px;
+        margin-top: $margin-x-small;
+        margin-bottom: $margin-medium;
+      }
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, 0.5fr);
+      // gap: $gap-size;
+
+      .grid-elm {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        img {
+          object-fit: cover;
+          width: 100%;
+        }
+
+        .legend {
+          width: 75%;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          font-size: $font-size-normal;
+
+          .right {
+            text-align: right;
+
+            .project-link {
+              text-decoration: underline;
+              font-size: $font-size-small;
+              font-style: italic;
+
+              &:hover {
+                font-style: normal;
+                color: $green;
+                cursor: pointer;
               }
             }
           }
         }
       }
     }
+  }
 
-    #value {
-      position: relative;
-      height: 100vh;
+  #value {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: calc(100vw - (2 * $gutter-size));
+
+    .title {
+      font-size: $font-size-x-large;
       display: flex;
       flex-direction: column;
-      justify-content: center;
-      width: calc(100vw - (2 * $gutter-size));
-
-      .title {
-        font-size: $font-size-x-large;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        font-family: $title-font;
-
-        .line {
-          height: 1px;
-          background-color: $black;
-          width: 334px;
-          margin-top: $margin-x-small;
-          margin-bottom: $margin-medium;
-        }
-      }
-
-      .background-line {
-        position: absolute;
-        width: 100vw;
-        top: -335px;
-        left: -500px;
-        z-index: -10;
-      }
-    }
-
-    #contact {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      margin-bottom: calc($margin-large * 3);
-      width: calc(100vw - (2 * $gutter-size));
-      transition: 300ms ease-in-out;
-
-      h3 {
-        font-size: $font-size-medium;
-        color: $green;
-        text-align: left;
-        margin-left: 118px;
-      }
-
-      .title-box {
-        font-size: $font-size-large;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-
-        .title {
-          display: flex;
-        font-family: $title-font;
-
-          img {
-            width: 88px;
-            margin-right: $margin-normal;
-      transition: 300ms ease-in-out;
-          }
-        }
-
-        .line {
-          height: 1px;
-          background-color: $black;
-          width: 247px;
-          margin-top: $margin-x-small;
-          margin-bottom: $margin-small;
-          margin-left: 118px;
-        }
-      }
-
-      &:hover {
-        transform: translateX(2%);
-      }
-
-      &:hover img {
-        transform: translateX(-20%);
-      }
-    }
-
-    #sentence {
-      width: calc(100vw - (2 * $gutter-size));
-      font-size: $font-size-l-large;
+      align-items: center;
       font-family: $title-font;
+
+      h2 {
+        font-weight: 300;
+      }
+
+      .line {
+        height: 1px;
+        background-color: $black;
+        width: 334px;
+        margin-top: $margin-x-small;
+        margin-bottom: $margin-medium;
+      }
+    }
+
+    .background-line {
+      position: absolute;
+      width: 100vw;
+      top: -335px;
+      left: -500px;
+      z-index: -10;
     }
   }
+
+  #contact {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: calc($margin-large * 3);
+    width: calc(100vw - (2 * $gutter-size));
+    transition: 300ms ease-in-out;
+
+    h2 {
+      font-weight: 300;
+    }
+
+    h3 {
+      font-size: $font-size-medium;
+      color: $green;
+      text-align: left;
+      margin-left: 118px;
+    }
+
+    .title-box {
+      font-size: $font-size-large;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+
+      .title {
+        display: flex;
+        font-family: $title-font;
+
+        img {
+          width: 88px;
+          margin-right: $margin-normal;
+          transition: 300ms ease-in-out;
+        }
+      }
+
+      .line {
+        height: 1px;
+        background-color: $black;
+        width: 247px;
+        margin-top: $margin-x-small;
+        margin-bottom: $margin-small;
+        margin-left: 118px;
+      }
+    }
+
+    &:hover {
+      transform: translateX(2%);
+    }
+
+    &:hover img {
+      transform: translateX(-20%);
+    }
+  }
+
+  #sentence {
+    width: calc(100vw - (2 * $gutter-size));
+    font-size: $font-size-l-large;
+    font-weight: 300;
+    font-family: $title-font;
+  }
+}
 </style>
