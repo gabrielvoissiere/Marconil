@@ -7,7 +7,7 @@
     </div>
 
     <div id="progress">
-      <h3>Notre site et en développement, de ce fait certaine fonctionnalitées / liens sont suceptible de ne pas fonctionnés.</h3>
+      <h3>Notre site et en développement, de ce fait certaine fonctionnalitées / liens sont suceptibles de ne pas fonctionnés.</h3>
       <img src="../assets/gif/in-progress.gif" alt="">
     </div>
 
