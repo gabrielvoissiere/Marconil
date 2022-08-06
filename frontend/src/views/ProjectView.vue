@@ -62,10 +62,7 @@
 
     <section id="graphic-exemple">
       <img src="../assets/images/svg/afiche-le-studio-blanche.svg" alt="" />
-      <img
-        src="../assets/images/svg/affiche-le-studio-noir-horizontal.svg"
-        alt=""
-      />
+      <img src="../assets/images/svg/affiche-le-studio-noir-horizontal.svg" alt="" />
       <img src="../assets/images/svg/affiche-le-studio-orange.svg" alt="" />
     </section>
 
@@ -77,10 +74,7 @@
     </section>
 
     <section id="graphic-exemple">
-      <img
-        src="../assets/images/svg/affiche-le-studio-orange-horizontal.svg"
-        alt=""
-      />
+      <img src="../assets/images/svg/affiche-le-studio-orange-horizontal.svg" alt="" />
       <img src="../assets/images/svg/affiche-le-studio-noir.svg" alt="" />
     </section>
 
@@ -93,32 +87,13 @@
     </section>
 
     <section id="grid">
-      <img
-        src="../assets/images/svg/affiche-le-studio-noir-horizontal.svg"
-        alt=""
-      />
+      <img src="../assets/images/svg/affiche-le-studio-noir-horizontal.svg" alt="" />
       <div class="grid-box">
-        <img
-          class="first-main"
-          src="../assets/images/svg/urban-vision-final-site.svg"
-          alt=""
-        />
+        <img class="first-main" src="../assets/images/svg/urban-vision-final-site.svg" alt="" />
         <div class="next">
-          <img
-            class="second-main"
-            src="../assets/images/svg/urban-vision-final-site-part-1.svg"
-            alt=""
-          />
-          <img
-            class="second-second"
-            src="../assets/images/svg/urban-vision-final-site-part-2.svg"
-            alt=""
-          />
-          <img
-            class="second-last"
-            src="../assets/images/svg/urban-vision-final-site-part-3.svg"
-            alt=""
-          />
+          <img class="second-main" src="../assets/images/svg/urban-vision-final-site-part-1.svg" alt="" />
+          <img class="second-second" src="../assets/images/svg/urban-vision-final-site-part-2.svg" alt="" />
+          <img class="second-last" src="../assets/images/svg/urban-vision-final-site-part-3.svg" alt="" />
         </div>
       </div>
     </section>
@@ -162,6 +137,10 @@ export default {
     align-items: flex-start;
     width: calc(100vw - (2 * $gutter-size));
     position: relative;
+
+    h2 {
+      font-weight: 300;
+    }
 
     h3 {
       font-size: $font-size-medium;
@@ -209,6 +188,7 @@ export default {
       font-size: $font-size-x-large;
       text-align: left;
       font-family: $title-font;
+      font-weight: 300;
     }
 
     h3 {
@@ -244,6 +224,10 @@ export default {
           align-items: center;
           font-family: $title-font;
 
+          h4 {
+            font-weight: 300;
+          }
+
           .line {
             height: 1px;
             background-color: $black;
@@ -263,6 +247,10 @@ export default {
     justify-content: center;
     width: calc(100vw - (2 * $gutter-size));
     position: relative;
+
+    h2 {
+      font-weight: 300;
+    }
 
     h3 {
       font-size: $font-size-medium;
@@ -311,6 +299,10 @@ export default {
     position: relative;
     margin-top: calc(2 * $margin-x-large);
 
+    h2 {
+      font-weight: 300;
+    }
+
     h3 {
       font-size: $font-size-medium;
       color: $green;
@@ -349,7 +341,7 @@ export default {
     .grid-box {
       display: flex;
       align-items: flex-start;
-      
+
       img {
         margin-top: $margin-large;
       }
@@ -362,61 +354,66 @@ export default {
     }
   }
 
-    #contact {
+  #contact {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: calc($margin-large * 3);
+    width: calc(100vw - (2 * $gutter-size));
+    transition: 300ms ease-in-out;
+
+    h2 {
+      font-weight: 300;
+    }
+
+    h3 {
+      font-size: $font-size-medium;
+      color: $green;
+      text-align: left;
+      margin-left: 118px;
+    }
+
+    .title-box {
+      font-size: $font-size-large;
       display: flex;
       flex-direction: column;
-      justify-content: center;
-      margin-bottom: calc($margin-large * 3);
-      width: calc(100vw - (2 * $gutter-size));
-      transition: 300ms ease-in-out;
+      align-items: flex-start;
 
-      h3 {
-        font-size: $font-size-medium;
-        color: $green;
-        text-align: left;
-        margin-left: 118px;
-      }
-
-      .title-box {
-        font-size: $font-size-large;
+      .title {
         display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-
-        .title {
-          display: flex;
         font-family: $title-font;
 
-          img {
-            width: 88px;
-            margin-right: $margin-normal;
-      transition: 300ms ease-in-out;
-          }
-        }
-
-        .line {
-          height: 1px;
-          background-color: $black;
-          width: 247px;
-          margin-top: $margin-x-small;
-          margin-bottom: $margin-small;
-          margin-left: 118px;
+        img {
+          width: 88px;
+          margin-right: $margin-normal;
+          transition: 300ms ease-in-out;
         }
       }
 
-      &:hover {
-        transform: translateX(2%);
-      }
-
-      &:hover img {
-        transform: translateX(-20%);
+      .line {
+        height: 1px;
+        background-color: $black;
+        width: 247px;
+        margin-top: $margin-x-small;
+        margin-bottom: $margin-small;
+        margin-left: 118px;
       }
     }
 
-    #sentence {
-      width: calc(100vw - (2 * $gutter-size));
-      font-size: $font-size-l-large;
-      font-family: $title-font;
+    &:hover {
+      transform: translateX(2%);
     }
+
+    &:hover img {
+      transform: translateX(-20%);
+    }
+  }
+
+  #sentence {
+    width: calc(100vw - (2 * $gutter-size));
+    font-size: $font-size-l-large;
+    font-weight: 300;
+    font-family: $title-font;
+  }
 }
 </style>

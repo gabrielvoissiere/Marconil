@@ -24,7 +24,7 @@ button {
 /* typos */
 @font-face {
     font-family: 'Bigilla-bold';
-    src: url('./fonts/Bigilla.otf');
+    src: url('./fonts/Bigilla-Bold.otf');
 }
 
 @font-face {
@@ -32,9 +32,14 @@ button {
     src: url('./fonts/Montserrat-Light.ttf');
 }
 
+@font-face {
+    font-family: 'Montserrat-regular';
+    src: url('./fonts/Montserrat-Regular.ttf');
+}
+
 body {
     width: 100vw;
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
