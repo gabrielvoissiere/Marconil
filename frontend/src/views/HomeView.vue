@@ -1,9 +1,15 @@
 <template>
   <div class="home">
 
-    <!-- <div id="line-background">
-      <img src="../assets/images/svg/line-footer.svg" alt="">
-    </div> -->
+    <div id="arf">
+      <h3>Oups ! Notre site n'est pas encore accessible sur mobile / tablette ...</h3>
+      <img src="../assets/gif/in-progress.gif" alt="">
+    </div>
+
+    <div id="progress">
+      <h3>Notre site et en développement, de ce fait certaine fonctionnalitées / liens sont suceptible de ne pas fonctionnés.</h3>
+      <img src="../assets/gif/in-progress.gif" alt="">
+    </div>
 
     <section id="above_the_fold">
       <h1><span class="special_text">Neza</span> <span v-html="$t('home_page.above_the_fold.title')"></span></h1>
@@ -69,7 +75,7 @@
       <div class="grid">
 
         <div class="grid-elm">
-          <img src="../assets/images/svg/urban-vision-mac-mockup.svg" alt="">
+          <img src="../assets/images/png/mac1.png" alt="">
           <div class="legend">
             <div class="left">
               <p>Urban vision - <span class="special_text">ザイン + ウェ</span></p>
@@ -77,13 +83,13 @@
             </div>
             <div class="right">
               <p>2022</p>
-              <router-link class="project-link" to="/project">En savoir plus</router-link>
+              <router-link class="project-link" to="/">En savoir plus</router-link>
             </div>
           </div>
         </div>
 
         <div class="grid-elm">
-          <img src="../assets/images/svg/urban-vision-mac-mockup.svg" alt="">
+          <img src="../assets/images/png/mac2.png" alt="">
           <div class="legend">
             <div class="left">
               <p>Urban vision - <span class="special_text">ザイン + ウェ</span></p>
@@ -91,13 +97,13 @@
             </div>
             <div class="right">
               <p>2022</p>
-              <router-link class="project-link" to="/project">En savoir plus</router-link>
+              <router-link class="project-link" to="/">En savoir plus</router-link>
             </div>
           </div>
         </div>
 
         <div class="grid-elm">
-          <img src="../assets/images/svg/urban-vision-mac-mockup.svg" alt="">
+          <img src="../assets/images/png/iphone.png" alt="">
           <div class="legend">
             <div class="left">
               <p>Urban vision - <span class="special_text">ザイン + ウェ</span></p>
@@ -105,12 +111,12 @@
             </div>
             <div class="right">
               <p>2022</p>
-              <router-link class="project-link" to="/project">En savoir plus</router-link>
+              <router-link class="project-link" to="/">En savoir plus</router-link>
             </div>
           </div>
         </div>
 
-        <div class="grid-elm">
+        <!-- <div class="grid-elm">
           <img src="../assets/images/svg/urban-vision-mac-mockup.svg" alt="">
           <div class="legend">
             <div class="left">
@@ -122,7 +128,7 @@
               <router-link class="project-link" to="/project">En savoir plus</router-link>
             </div>
           </div>
-        </div>
+        </div> -->
 
       </div>
     </section>
@@ -168,10 +174,83 @@ export default {
 <style lang="scss" scoped>
 @import '../assets/styles/_variables.scss';
 
+@keyframes progress {
+  0% {
+    opacity: 1;
+    z-index: 1000000;
+  }
+
+  90% {
+    opacity: 1;
+    z-index: 1000000;
+  }
+
+  100% {
+    opacity: 0;
+    z-index: -1000000;
+  }
+}
+
 .home {
   display: flex;
   flex-direction: column;
   align-content: center;
+
+  #arf {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: $white;
+    z-index: -1000000;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+
+    h3 {
+      width: 80%;
+      text-align: center;
+    }
+
+    img {
+      width: 80%;
+    }
+
+    @media screen and (max-width: 1160px) {
+      opacity: 1;
+    z-index: 1000000;
+    }
+  }
+
+  #progress {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: $white;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    animation: progress 5000ms linear both;
+
+    h3 {
+      width: 80%;
+      text-align: center;
+    }
+
+    img {
+      width: 20%;
+      margin: 0;
+    }
+  }
 
   #line-background {
     position: absolute;
@@ -206,7 +285,7 @@ export default {
     width: calc(100vw - (2 * $gutter-size));
 
     h1 {
-      font-size: 60px;
+      font-size: 3.75rem;
       font-family: $title-font;
       font-weight: 500;
     }
@@ -219,7 +298,7 @@ export default {
       font-size: $font-size-normal;
       margin-top: 20px;
       font-family: 'Montserrat-regular';
-      font-size: 18px;
+      font-size: 1.125rem;
       font-weight: 300;
       text-decoration: none;
       z-index: 100000;
@@ -264,7 +343,7 @@ export default {
         font-size: $font-size-normal;
 
         .title {
-          font-size: $font-size-large;
+          font-size: 2.8rem;
           display: flex;
           flex-direction: column;
           align-items: center;
@@ -297,7 +376,7 @@ export default {
     font-weight: 300;
 
     h2 {
-      font-size: 50px;
+      font-size: 3.125rem;
       text-align: center;
     }
 
@@ -365,7 +444,20 @@ export default {
 
         img {
           object-fit: cover;
-          width: 100%;
+          width: 80%;
+        }
+
+        &:last-child {
+          grid-column: 1 / 3;
+          margin-top: 20px;
+
+          img {
+            width: 40%;
+          }
+
+          .legend {
+            width: 30%;
+          }
         }
 
         .legend {
@@ -404,7 +496,7 @@ export default {
     width: calc(100vw - (2 * $gutter-size));
 
     .title {
-      font-size: 65px;
+      font-size: 4rem;
       display: flex;
       flex-direction: column;
       align-items: center;
