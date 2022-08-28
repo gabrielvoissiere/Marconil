@@ -1,20 +1,34 @@
 <template>
   <div class="home">
-
     <div id="arf">
-      <h3>Oups ! Notre site n'est pas encore accessible sur mobile / tablette ...</h3>
-      <img src="../assets/gif/in-progress.gif" alt="">
+      <h3>
+        Oups ! Notre site n'est pas encore accessible sur mobile / tablette ...
+      </h3>
+      <img src="../assets/gif/in-progress.gif" alt="" />
     </div>
 
-    <div id="progress">
-      <h3>Notre site et en développement, de ce fait certaine fonctionnalitées / liens sont suceptible de ne pas fonctionnés.</h3>
-      <img src="../assets/gif/in-progress.gif" alt="">
-    </div>
+    <!-- <div id="progress">
+      <h3>
+        Notre site et en développement, de ce fait certaine fonctionnalitées /
+        liens sont suceptible de ne pas fonctionnés.
+      </h3>
+      <img src="../assets/gif/in-progress.gif" alt="" />
+    </div> -->
 
     <section id="above_the_fold">
-      <h1><span class="special_text">Neza</span> <span v-html="$t('home_page.above_the_fold.title')"></span></h1>
-      <a href="mailto:nezaagency@gmail.com" v-html="$t('home_page.above_the_fold.btn')"></a>
-      <img class="background-line" src="../assets/images/svg/line-top.svg" alt="">
+      <h1>
+        <span class="special_text">Neza</span>
+        <span v-html="$t('home_page.above_the_fold.title')"></span>
+      </h1>
+      <a
+        href="mailto:nezaagency@gmail.com"
+        v-html="$t('home_page.above_the_fold.btn')"
+      ></a>
+      <img
+        class="background-line"
+        src="../assets/images/svg/line-top.svg"
+        alt=""
+      />
     </section>
 
     <section id="work">
@@ -22,7 +36,6 @@
       <h3 v-html="$t('home_page.work.subtitle')"></h3>
 
       <div class="work-box">
-
         <div class="box">
           <div class="title">
             <h4 v-html="$t('home_page.work.first_block.title')"></h4>
@@ -54,7 +67,6 @@
           </div>
           <p v-html="$t('home_page.work.fourth_block.text')"></p>
         </div>
-
       </div>
     </section>
 
@@ -63,7 +75,11 @@
         <h2 v-html="$t('home_page.who.title')"></h2>
         <div class="line" />
       </div>
-      <img class="background-line" src="../assets/images/svg/line-medium.svg" alt="">
+      <img
+        class="background-line"
+        src="../assets/images/svg/line-medium.svg"
+        alt=""
+      />
     </section>
 
     <section id="projects">
@@ -73,45 +89,56 @@
       </div>
 
       <div class="grid">
-
         <div class="grid-elm">
-          <img src="../assets/images/png/mac1.png" alt="">
+          <img src="../assets/images/png/mac1.png" alt="" />
           <div class="legend">
             <div class="left">
-              <p>Urban vision - <span class="special_text">ザイン + ウェ</span></p>
+              <p>
+                Urban vision - <span class="special_text">ザイン + ウェ</span>
+              </p>
               <p>beatmaking school studio</p>
             </div>
             <div class="right">
               <p>2022</p>
-              <router-link class="project-link" to="/">En savoir plus</router-link>
+              <router-link class="project-link" to="/"
+                >En savoir plus</router-link
+              >
             </div>
           </div>
         </div>
 
         <div class="grid-elm">
-          <img src="../assets/images/png/mac2.png" alt="">
+          <img src="../assets/images/png/mac2.png" alt="" />
           <div class="legend">
             <div class="left">
-              <p>Urban vision - <span class="special_text">ザイン + ウェ</span></p>
+              <p>
+                Urban vision - <span class="special_text">ザイン + ウェ</span>
+              </p>
               <p>beatmaking school studio</p>
             </div>
             <div class="right">
               <p>2022</p>
-              <router-link class="project-link" to="/">En savoir plus</router-link>
+              <router-link class="project-link" to="/"
+                >En savoir plus</router-link
+              >
             </div>
           </div>
         </div>
 
         <div class="grid-elm">
-          <img src="../assets/images/png/iphone.png" alt="">
+          <img src="../assets/images/png/iphone.png" alt="" />
           <div class="legend">
             <div class="left">
-              <p>Urban vision - <span class="special_text">ザイン + ウェ</span></p>
+              <p>
+                Urban vision - <span class="special_text">ザイン + ウェ</span>
+              </p>
               <p>beatmaking school studio</p>
             </div>
             <div class="right">
               <p>2022</p>
-              <router-link class="project-link" to="/">En savoir plus</router-link>
+              <router-link class="project-link" to="/"
+                >En savoir plus</router-link
+              >
             </div>
           </div>
         </div>
@@ -129,7 +156,6 @@
             </div>
           </div>
         </div> -->
-
       </div>
     </section>
 
@@ -144,35 +170,39 @@
     <section id="contact">
       <div class="title-box">
         <div class="title">
-          <img class="dark" src="../assets/images/svg/right-arrow.svg" alt="">
-          <a href='mailto:nezaagency@gmail.com' v-html="$t('home_page.contact.title')"></a>
+          <img class="dark" src="../assets/images/svg/right-arrow.svg" alt="" />
+          <a
+            href="mailto:nezaagency@gmail.com"
+            v-html="$t('home_page.contact.title')"
+          ></a>
         </div>
-        <div class="line"/>
+        <div class="line" />
       </div>
       <h3 v-html="$t('home_page.contact.subtitle')"></h3>
     </section>
 
-    <h3 id="sentence"><span class="special_text" v-html="$t('home_page.sentence.first')"></span><br><span
-        v-html="$t('home_page.sentence.second')"></span></h3>
+    <h3 id="sentence">
+      <span class="special_text" v-html="$t('home_page.sentence.first')"></span
+      ><br /><span v-html="$t('home_page.sentence.second')"></span>
+    </h3>
 
     <!-- <MainFooter /> -->
-
   </div>
 </template>
 
 <script>
 export default {
-  name: 'Home-page',
+  name: "Home-page",
   mounted() {
-    const above_the_fold = document.getElementById('above_the_fold')
-    const header = document.querySelector('.header').offsetHeight
-    above_the_fold.style.height = `calc(100vh - ${header}px - 40px)`
+    const above_the_fold = document.getElementById("above_the_fold");
+    const header = document.querySelector(".header").offsetHeight;
+    above_the_fold.style.height = `calc(100vh - ${header}px - 40px)`;
   },
-}
+};
 </script>
 
 <style lang="scss" scoped>
-@import '../assets/styles/_variables.scss';
+@import "../assets/styles/_variables.scss";
 
 @keyframes progress {
   0% {
@@ -222,7 +252,7 @@ export default {
 
     @media screen and (max-width: 1160px) {
       opacity: 1;
-    z-index: 1000000;
+      z-index: 1000000;
     }
   }
 
@@ -288,6 +318,11 @@ export default {
       font-size: 3.75rem;
       font-family: $title-font;
       font-weight: 500;
+      margin-top: 10px;
+
+      @media screen and (max-width: 1280px) {
+        font-size: 3.25rem;
+      }
     }
 
     a {
@@ -297,7 +332,7 @@ export default {
       color: $white;
       font-size: $font-size-normal;
       margin-top: 20px;
-      font-family: 'Montserrat-regular';
+      font-family: "Montserrat-regular";
       font-size: 1.125rem;
       font-weight: 300;
       text-decoration: none;
@@ -334,6 +369,10 @@ export default {
       display: flex;
       justify-content: space-between;
       margin-top: $margin-x-large;
+
+      @media screen and (max-width: 1280px) {
+        margin-top: $margin-large;
+      }
 
       .box {
         display: flex;

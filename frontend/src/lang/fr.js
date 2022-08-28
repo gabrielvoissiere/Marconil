@@ -16,7 +16,7 @@ const fr = {
     },
     home_page: {
         above_the_fold: {
-            title: "est une agence de web design <br> et de développement web/mobile basée dans le sud de la France ",
+            title: " est une agence de web design <br> et de développement web/mobile basée dans le sud de la France ",
             btn: "Demander un devis"
         },
         work: {
