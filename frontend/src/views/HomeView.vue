@@ -7,13 +7,13 @@
       <img src="../assets/gif/in-progress.gif" alt="" />
     </div>
 
-    <!-- <div id="progress">
+    <div id="progress">
       <h3>
         Notre site et en développement, de ce fait certaine fonctionnalitées /
         liens sont suceptible de ne pas fonctionnés.
       </h3>
       <img src="../assets/gif/in-progress.gif" alt="" />
-    </div> -->
+    </div>
 
     <section id="above_the_fold">
       <h1>
