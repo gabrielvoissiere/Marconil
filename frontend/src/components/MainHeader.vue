@@ -55,7 +55,7 @@
         text-align: left;
 
         h1 {
-            font-size: $font-size-normal;
+            font-size: $font-size-medium;
             font-weight: $normal;
         }
 
@@ -71,7 +71,7 @@
 
         a {
             text-decoration: none;
-            font-size: $font-size-normal;
+            font-size: $font-size-medium;
 
             &.router-link-exact-active {
                 color: #42b983;

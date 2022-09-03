@@ -31,16 +31,17 @@ $gutter-size: 125px;
 $gap-size: 20px;
 
 // margin
-$margin-x-small: 10px;
-$margin-small: 20px;
-$margin-normal: 30px;
-$margin-medium: 40px;
-$margin-large: 60px;
-$margin-x-large: 132px;
+$margin-x-small: 0.6rem;
+$margin-small: 1.25rem;
+$margin-normal: 1.8rem;
+$margin-medium: 2.5rem;
+$margin-large: 3.75rem;
+$margin-x-large: 8.25rem;
 
 // font familly
 $title-font: 'Bigilla-bold';
 $text-font: 'Montserrat-light';
+$text-font-regular: 'Montserrat-regular';
 
 // style global
 .special_text {

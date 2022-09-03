@@ -7,13 +7,13 @@
       <img src="../assets/gif/in-progress.gif" alt="" />
     </div>
 
-    <div id="progress">
+    <!-- <div id="progress">
       <h3>
         Notre site et en développement, de ce fait certaine fonctionnalitées /
         liens sont suceptible de ne pas fonctionnés.
       </h3>
       <img src="../assets/gif/in-progress.gif" alt="" />
-    </div>
+    </div> -->
 
     <section id="above_the_fold">
       <h1>
@@ -99,7 +99,7 @@
               <p>beatmaking school studio</p>
             </div>
             <div class="right">
-              <p>2022</p>
+              <p>2021</p>
               <router-link class="project-link" to="/"
                 >En savoir plus</router-link
               >
@@ -112,9 +112,9 @@
           <div class="legend">
             <div class="left">
               <p>
-                Urban vision - <span class="special_text">ザイン + ウェ</span>
+                Paula Scher - <span class="special_text">ザイン + ウェ</span>
               </p>
-              <p>beatmaking school studio</p>
+              <p>Artiste portfolio</p>
             </div>
             <div class="right">
               <p>2022</p>
@@ -130,9 +130,9 @@
           <div class="legend">
             <div class="left">
               <p>
-                Urban vision - <span class="special_text">ザイン + ウェ</span>
+                Florame - <span class="special_text">ザイン + ウェ</span>
               </p>
-              <p>beatmaking school studio</p>
+              <p>Diagnostic</p>
             </div>
             <div class="right">
               <p>2022</p>
@@ -318,7 +318,7 @@ export default {
       font-size: 3.75rem;
       font-family: $title-font;
       font-weight: 500;
-      margin-top: 10px;
+      margin-top: 50px;
 
       @media screen and (max-width: 1280px) {
         font-size: 3.25rem;
@@ -400,6 +400,10 @@ export default {
             margin-top: $margin-x-small;
             margin-bottom: $margin-large;
           }
+        }
+
+        p {
+          font-size: $font-size-normal;
         }
       }
     }
@@ -505,6 +509,7 @@ export default {
           justify-content: space-between;
           align-items: center;
           font-size: $font-size-normal;
+          margin-top: $margin-small;
 
           .right {
             text-align: right;
@@ -567,9 +572,7 @@ export default {
     width: calc(100vw - (2 * $gutter-size));
     transition: 300ms ease-in-out;
 
-    h2 {
-      font-weight: 300;
-    }
+    
 
     h3 {
       font-size: $font-size-medium;
@@ -590,6 +593,7 @@ export default {
 
         a {
           text-decoration: none;
+          font-size: 1.5em;
         }
 
         img {
