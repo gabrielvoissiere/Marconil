@@ -7,13 +7,13 @@
       <img src="../assets/gif/in-progress.gif" alt="" />
     </div>
 
-    <!-- <div id="progress">
+    <div id="progress">
       <h3>
         Notre site et en développement, de ce fait certaine fonctionnalitées /
         liens sont suceptible de ne pas fonctionnés.
       </h3>
       <img src="../assets/gif/in-progress.gif" alt="" />
-    </div> -->
+    </div>
 
     <section id="above_the_fold">
       <h1>
@@ -198,20 +198,20 @@ export default {
     const header = document.querySelector(".header").offsetHeight;
     above_the_fold.style.height = `calc(100vh - ${header}px - 40px)`;
 
-    let timer = null;
-    window.addEventListener('wheel', function(e) {
-        document.getElementById('app-content').style.transform = "translateY(0px)"
-        if(timer !== null) {
-            clearTimeout(timer);        
-        }
-        timer = setTimeout(function() {
-          document.getElementById('app-content').style.transition = "800ms ease-in-out"
-          document.getElementById('app-content').style.transform = `translateY(${e.deltaY === 100 ? "-50px" : "50px"})`
-          setTimeout(() => {
-            document.getElementById('app-content').style.transform = "translateY(0px)"
-          }, 800);
-        },5);
-    }, false);
+    // let timer = null;
+    // window.addEventListener('wheel', function(e) {
+    //     document.getElementById('app-content').style.transform = "translateY(0px)"
+    //     if(timer !== null) {
+    //         clearTimeout(timer);        
+    //     }
+    //     timer = setTimeout(function() {
+    //       document.getElementById('app-content').style.transition = "800ms ease-in-out"
+    //       document.getElementById('app-content').style.transform = `translateY(${e.deltaY === 100 ? "-50px" : "50px"})`
+    //       setTimeout(() => {
+    //         document.getElementById('app-content').style.transform = "translateY(0px)"
+    //       }, 800);
+    //     },5);
+    // }, false);
   },
 };
 </script>
