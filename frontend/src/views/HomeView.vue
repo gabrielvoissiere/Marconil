@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div class="home" ref="scrollSections">
     <div id="arf">
       <h3>
         Oups ! Notre site n'est pas encore accessible sur mobile / tablette ...
@@ -7,20 +7,21 @@
       <img src="../assets/gif/in-progress.gif" alt="" />
     </div>
 
-    <div id="progress">
+    <!-- <div id="progress">
       <h3>
         Notre site et en développement, de ce fait certaine fonctionnalitées /
         liens sont suceptible de ne pas fonctionnés.
       </h3>
       <img src="../assets/gif/in-progress.gif" alt="" />
-    </div>
+    </div> -->
 
-    <section id="above_the_fold">
-      <h1>
+    <section id="above_the_fold" data-scroll-section>
+      <h1 data-scroll data-scroll-speed="3">
         <span class="special_text">Neza</span>
         <span v-html="$t('home_page.above_the_fold.title')"></span>
       </h1>
       <a
+        data-scroll data-scroll-speed="2"
         href="mailto:nezaagency@gmail.com"
         v-html="$t('home_page.above_the_fold.btn')"
       ></a>
@@ -191,6 +192,8 @@
 </template>
 
 <script>
+import locomotiveScroll from "locomotive-scroll";
+
 export default {
   name: "Home-page",
   mounted() {
@@ -198,20 +201,23 @@ export default {
     const header = document.querySelector(".header").offsetHeight;
     above_the_fold.style.height = `calc(100vh - ${header}px - 40px)`;
 
-    // let timer = null;
-    // window.addEventListener('wheel', function(e) {
-    //     document.getElementById('app-content').style.transform = "translateY(0px)"
-    //     if(timer !== null) {
-    //         clearTimeout(timer);        
-    //     }
-    //     timer = setTimeout(function() {
-    //       document.getElementById('app-content').style.transition = "800ms ease-in-out"
-    //       document.getElementById('app-content').style.transform = `translateY(${e.deltaY === 100 ? "-50px" : "50px"})`
-    //       setTimeout(() => {
-    //         document.getElementById('app-content').style.transform = "translateY(0px)"
-    //       }, 800);
-    //     },5);
-    // }, false);
+    // const _self = this;
+    // this.$nextTick(function() {
+    //   _self.initLocoScroll();
+    // });
+
+    this.initLocoScroll()
+  },
+  methods: {
+    initLocoScroll() {
+      const _self = this;
+      this.scroll = new locomotiveScroll({
+        el: _self.$refs['scrollSections'],
+        smooth: true,
+        smoothMobile: true,
+        getDirection: true
+      });
+    }
   },
 };
 </script>
