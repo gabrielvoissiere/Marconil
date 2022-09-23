@@ -2,13 +2,11 @@
   <div id="app-content">
     <MainHeader :getSwitchStatus="getSwitchStatus"/>
     <router-view />
-    <MainFooter />
   </div>
 </template>
 
 <script>
 import MainHeader from './components/MainHeader.vue'
-import MainFooter from './components/MainFooter.vue'
 
 export default {
   name: 'app',
@@ -20,8 +18,7 @@ export default {
   },
 
   components: {
-    MainHeader,
-    MainFooter
+    MainHeader
   },
   methods: {
     getSwitchStatus(switchStatus) {

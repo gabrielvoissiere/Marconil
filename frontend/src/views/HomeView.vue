@@ -16,12 +16,13 @@
     </div> -->
 
     <section id="above_the_fold" data-scroll-section>
-      <h1 data-scroll data-scroll-speed="3">
+      <h1>
         <span class="special_text">Neza</span>
         <span v-html="$t('home_page.above_the_fold.title')"></span>
       </h1>
       <a
-        data-scroll data-scroll-speed="2"
+        data-scroll
+        data-scroll-speed="1"
         href="mailto:nezaagency@gmail.com"
         v-html="$t('home_page.above_the_fold.btn')"
       ></a>
@@ -32,12 +33,12 @@
       />
     </section>
 
-    <section id="work">
+    <section id="work" data-scroll-section>
       <h2 v-html="$t('home_page.work.title')"></h2>
       <h3 v-html="$t('home_page.work.subtitle')"></h3>
 
       <div class="work-box">
-        <div class="box">
+        <div data-scroll data-scroll-speed="1" class="box">
           <div class="title">
             <h4 v-html="$t('home_page.work.first_block.title')"></h4>
             <div class="line" />
@@ -45,7 +46,7 @@
           <p v-html="$t('home_page.work.first_block.text')"></p>
         </div>
 
-        <div class="box">
+        <div data-scroll data-scroll-speed="1" class="box">
           <div class="title">
             <h4 v-html="$t('home_page.work.second_block.title')"></h4>
             <div class="line" />
@@ -53,7 +54,7 @@
           <p v-html="$t('home_page.work.second_block.text')"></p>
         </div>
 
-        <div class="box">
+        <div data-scroll data-scroll-speed="1" class="box">
           <div class="title">
             <h4 v-html="$t('home_page.work.third_block.title')"></h4>
             <div class="line" />
@@ -61,7 +62,7 @@
           <p v-html="$t('home_page.work.third_block.text')"></p>
         </div>
 
-        <div class="box">
+        <div data-scroll data-scroll-speed="1" class="box">
           <div class="title">
             <h4 v-html="$t('home_page.work.fourth_block.title')"></h4>
             <div class="line" />
@@ -71,10 +72,10 @@
       </div>
     </section>
 
-    <section id="who">
-      <div class="title">
+    <section id="who" data-scroll-section>
+      <div class="title" data-scroll data-scroll-speed="1">
         <h2 v-html="$t('home_page.who.title')"></h2>
-        <div class="line" />
+        <div class="line"  data-scroll data-scroll-speed="1"/>
       </div>
       <img
         class="background-line"
@@ -83,13 +84,13 @@
       />
     </section>
 
-    <section id="projects">
+    <section id="projects" data-scroll-section>
       <div class="title">
         <h2 v-html="$t('home_page.projects.title')"></h2>
         <div class="line" />
       </div>
 
-      <div class="grid">
+      <div class="grid" data-scroll data-scroll-speed="1">
         <div class="grid-elm">
           <img src="../assets/images/png/mac1.png" alt="" />
           <div class="legend">
@@ -130,9 +131,7 @@
           <img src="../assets/images/png/iphone.png" alt="" />
           <div class="legend">
             <div class="left">
-              <p>
-                Florame - <span class="special_text">ザイン + ウェ</span>
-              </p>
+              <p>Florame - <span class="special_text">ザイン + ウェ</span></p>
               <p>Diagnostic</p>
             </div>
             <div class="right">
@@ -160,7 +159,7 @@
       </div>
     </section>
 
-    <section id="value">
+    <section id="value" data-scroll-section>
       <div class="title">
         <h2 v-html="$t('home_page.value.title')"></h2>
         <div class="line" />
@@ -168,57 +167,67 @@
       <!-- <img class="background-line" src="../assets/images/svg/line-bottom.svg" alt=""> -->
     </section>
 
-    <section id="contact">
-      <div class="title-box">
-        <div class="title">
-          <img class="dark" src="../assets/images/svg/right-arrow.svg" alt="" />
-          <a
-            href="mailto:nezaagency@gmail.com"
-            v-html="$t('home_page.contact.title')"
-          ></a>
+    <section data-scroll-section>
+      <section id="contact">
+        <div class="title-box">
+          <div class="title">
+            <img
+              class="dark"
+              src="../assets/images/svg/right-arrow.svg"
+              alt=""
+            />
+            <a
+              href="mailto:nezaagency@gmail.com"
+              v-html="$t('home_page.contact.title')"
+            ></a>
+          </div>
+          <div class="line" />
         </div>
-        <div class="line" />
-      </div>
-      <h3 v-html="$t('home_page.contact.subtitle')"></h3>
+        <h3 v-html="$t('home_page.contact.subtitle')"></h3>
+      </section>
+
+      <h3 id="sentence">
+        <span
+          class="special_text"
+          v-html="$t('home_page.sentence.first')"
+        ></span
+        ><br /><span v-html="$t('home_page.sentence.second')"></span>
+      </h3>
     </section>
 
-    <h3 id="sentence">
-      <span class="special_text" v-html="$t('home_page.sentence.first')"></span
-      ><br /><span v-html="$t('home_page.sentence.second')"></span>
-    </h3>
-
+    <MainFooter data-scroll-section />
     <!-- <MainFooter /> -->
   </div>
 </template>
 
 <script>
 import locomotiveScroll from "locomotive-scroll";
+import MainFooter from "@/components/MainFooter.vue";
 
 export default {
-  name: "Home-page",
-  mounted() {
-    const above_the_fold = document.getElementById("above_the_fold");
-    const header = document.querySelector(".header").offsetHeight;
-    above_the_fold.style.height = `calc(100vh - ${header}px - 40px)`;
-
-    // const _self = this;
-    // this.$nextTick(function() {
-    //   _self.initLocoScroll();
-    // });
-
-    this.initLocoScroll()
-  },
-  methods: {
-    initLocoScroll() {
-      const _self = this;
-      this.scroll = new locomotiveScroll({
-        el: _self.$refs['scrollSections'],
-        smooth: true,
-        smoothMobile: true,
-        getDirection: true
-      });
-    }
-  },
+    name: "Home-page",
+    mounted() {
+        const above_the_fold = document.getElementById("above_the_fold");
+        const header = document.querySelector(".header").offsetHeight;
+        above_the_fold.style.height = `calc(100vh - ${header}px - 40px)`;
+        // const _self = this;
+        // this.$nextTick(function() {
+        //   _self.initLocoScroll();
+        // });
+        this.initLocoScroll();
+    },
+    methods: {
+        initLocoScroll() {
+            const _self = this;
+            this.scroll = new locomotiveScroll({
+                el: _self.$refs["scrollSections"],
+                smooth: true,
+                smoothMobile: true,
+                getDirection: true,
+            });
+        },
+    },
+    components: { MainFooter }
 };
 </script>
 
@@ -245,7 +254,7 @@ export default {
 .home {
   display: flex;
   flex-direction: column;
-  align-content: center;
+  align-items: center;
 
   #arf {
     width: 100vw;
@@ -592,8 +601,6 @@ export default {
     margin-bottom: calc($margin-large * 3);
     width: calc(100vw - (2 * $gutter-size));
     transition: 300ms ease-in-out;
-
-    
 
     h3 {
       font-size: $font-size-medium;
