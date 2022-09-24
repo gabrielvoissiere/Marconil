@@ -22,9 +22,10 @@
       </h1>
       <a
         data-scroll
-        data-scroll-speed="1"
+        data-scroll-speed="-1"
         href="mailto:nezaagency@gmail.com"
         v-html="$t('home_page.above_the_fold.btn')"
+        class="parallax-cta"
       ></a>
       <img
         class="background-line"
@@ -34,11 +35,11 @@
     </section>
 
     <section id="work" data-scroll-section>
-      <h2 v-html="$t('home_page.work.title')"></h2>
-      <h3 v-html="$t('home_page.work.subtitle')"></h3>
+      <h2 class="parallax-work-title" v-html="$t('home_page.work.title')"></h2>
+      <h3 class="parallax-work-subtitle" v-html="$t('home_page.work.subtitle')"></h3>
 
-      <div class="work-box">
-        <div data-scroll data-scroll-speed="1" class="box">
+      <div class="work-box" data-scroll data-scroll-speed="-1">
+        <div class="box">
           <div class="title">
             <h4 v-html="$t('home_page.work.first_block.title')"></h4>
             <div class="line" />
@@ -46,7 +47,7 @@
           <p v-html="$t('home_page.work.first_block.text')"></p>
         </div>
 
-        <div data-scroll data-scroll-speed="1" class="box">
+        <div class="box">
           <div class="title">
             <h4 v-html="$t('home_page.work.second_block.title')"></h4>
             <div class="line" />
@@ -54,7 +55,7 @@
           <p v-html="$t('home_page.work.second_block.text')"></p>
         </div>
 
-        <div data-scroll data-scroll-speed="1" class="box">
+        <div class="box">
           <div class="title">
             <h4 v-html="$t('home_page.work.third_block.title')"></h4>
             <div class="line" />
@@ -62,7 +63,7 @@
           <p v-html="$t('home_page.work.third_block.text')"></p>
         </div>
 
-        <div data-scroll data-scroll-speed="1" class="box">
+        <div class="box">
           <div class="title">
             <h4 v-html="$t('home_page.work.fourth_block.title')"></h4>
             <div class="line" />
@@ -73,9 +74,9 @@
     </section>
 
     <section id="who" data-scroll-section>
-      <div class="title" data-scroll data-scroll-speed="1">
+      <div class="title parallax-who" data-scroll data-scroll-speed="1">
         <h2 v-html="$t('home_page.who.title')"></h2>
-        <div class="line"  data-scroll data-scroll-speed="1"/>
+        <div class="line" data-scroll data-scroll-speed="1" />
       </div>
       <img
         class="background-line"
@@ -90,7 +91,7 @@
         <div class="line" />
       </div>
 
-      <div class="grid" data-scroll data-scroll-speed="1">
+      <div class="grid parallax-project-title" data-scroll data-scroll-speed="1">
         <div class="grid-elm">
           <img src="../assets/images/png/mac1.png" alt="" />
           <div class="legend">
@@ -160,14 +161,13 @@
     </section>
 
     <section id="value" data-scroll-section>
-      <div class="title">
+      <div class="title parallax-value-title">
         <h2 v-html="$t('home_page.value.title')"></h2>
         <div class="line" />
       </div>
       <!-- <img class="background-line" src="../assets/images/svg/line-bottom.svg" alt=""> -->
     </section>
 
-    <section data-scroll-section>
       <section id="contact">
         <div class="title-box">
           <div class="title">
@@ -193,7 +193,6 @@
         ></span
         ><br /><span v-html="$t('home_page.sentence.second')"></span>
       </h3>
-    </section>
 
     <MainFooter data-scroll-section />
     <!-- <MainFooter /> -->
@@ -202,32 +201,43 @@
 
 <script>
 import locomotiveScroll from "locomotive-scroll";
+import rallax from 'rallax.js'
 import MainFooter from "@/components/MainFooter.vue";
 
 export default {
-    name: "Home-page",
-    mounted() {
-        const above_the_fold = document.getElementById("above_the_fold");
-        const header = document.querySelector(".header").offsetHeight;
-        above_the_fold.style.height = `calc(100vh - ${header}px - 40px)`;
-        // const _self = this;
-        // this.$nextTick(function() {
-        //   _self.initLocoScroll();
-        // });
-        this.initLocoScroll();
+  name: "Home-page",
+  mounted() {
+    const above_the_fold = document.getElementById("above_the_fold");
+    const header = document.querySelector(".header").offsetHeight;
+    above_the_fold.style.height = `calc(100vh - ${header}px - 40px)`;
+
+    const optionsFirstSpeed = { speed: 0.1 };
+    const optionsSecondSpeed = { speed: 0.075 };
+    // eslint-disable-next-line
+    const parallaxCta = rallax(".parallax-cta", optionsFirstSpeed);
+    // eslint-disable-next-line
+    const parallaxWorkSubtitle = rallax(".parallax-work-subtitle", optionsSecondSpeed);
+    // eslint-disable-next-line
+    const parallaxWorkTitle = rallax(".parallax-work-title", optionsSecondSpeed);
+    // eslint-disable-next-line
+    const parallaxWho = rallax(".parallax-who", optionsFirstSpeed);
+    // eslint-disable-next-line
+    const parallaxProjectTitle = rallax(".parallax-project-title", optionsFirstSpeed);
+    // eslint-disable-next-line
+    const parallaxValueTitle = rallax(".parallax-value-title", optionsFirstSpeed);
+  },
+  methods: {
+    initLocoScroll() {
+      const _self = this;
+      this.scroll = new locomotiveScroll({
+        el: _self.$refs["scrollSections"],
+        smooth: true,
+        smoothMobile: true,
+        getDirection: true,
+      });
     },
-    methods: {
-        initLocoScroll() {
-            const _self = this;
-            this.scroll = new locomotiveScroll({
-                el: _self.$refs["scrollSections"],
-                smooth: true,
-                smoothMobile: true,
-                getDirection: true,
-            });
-        },
-    },
-    components: { MainFooter }
+  },
+  components: { MainFooter },
 };
 </script>
 
@@ -563,7 +573,7 @@ export default {
 
   #value {
     position: relative;
-    height: 120vh;
+    height: 140vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
