@@ -15,14 +15,14 @@
       <img src="../assets/gif/in-progress.gif" alt="" />
     </div> -->
 
-    <section id="above_the_fold" data-scroll-section>
+    <section id="above_the_fold" >
       <h1>
         <span class="special_text">Neza</span>
         <span v-html="$t('home_page.above_the_fold.title')"></span>
       </h1>
       <a
-        data-scroll
-        data-scroll-speed="-1"
+        
+        
         href="mailto:nezaagency@gmail.com"
         v-html="$t('home_page.above_the_fold.btn')"
         class="parallax-cta"
@@ -34,12 +34,12 @@
       />
     </section>
 
-    <section id="work" data-scroll-section>
+    <section id="work"  class="reveal">
       <h2 class="parallax-work-title" v-html="$t('home_page.work.title')"></h2>
       <h3 class="parallax-work-subtitle" v-html="$t('home_page.work.subtitle')"></h3>
 
-      <div class="work-box" data-scroll data-scroll-speed="-1">
-        <div class="box">
+      <div class="work-box"  >
+        <div class="box reveal-1">
           <div class="title">
             <h4 v-html="$t('home_page.work.first_block.title')"></h4>
             <div class="line" />
@@ -47,7 +47,7 @@
           <p v-html="$t('home_page.work.first_block.text')"></p>
         </div>
 
-        <div class="box">
+        <div class="box reveal-2">
           <div class="title">
             <h4 v-html="$t('home_page.work.second_block.title')"></h4>
             <div class="line" />
@@ -55,7 +55,7 @@
           <p v-html="$t('home_page.work.second_block.text')"></p>
         </div>
 
-        <div class="box">
+        <div class="box reveal-3">
           <div class="title">
             <h4 v-html="$t('home_page.work.third_block.title')"></h4>
             <div class="line" />
@@ -63,7 +63,7 @@
           <p v-html="$t('home_page.work.third_block.text')"></p>
         </div>
 
-        <div class="box">
+        <div class="box reveal-4">
           <div class="title">
             <h4 v-html="$t('home_page.work.fourth_block.title')"></h4>
             <div class="line" />
@@ -73,10 +73,10 @@
       </div>
     </section>
 
-    <section id="who" data-scroll-section>
-      <div class="title parallax-who" data-scroll data-scroll-speed="1">
-        <h2 v-html="$t('home_page.who.title')"></h2>
-        <div class="line" data-scroll data-scroll-speed="1" />
+    <section id="who"  class="">
+      <div class="title reveal parallax-who"  >
+        <h2 class="reveal-1" v-html="$t('home_page.who.title')"></h2>
+        <div class="line reveal-2"   />
       </div>
       <img
         class="background-line"
@@ -85,14 +85,14 @@
       />
     </section>
 
-    <section id="projects" data-scroll-section>
-      <div class="title">
-        <h2 v-html="$t('home_page.projects.title')"></h2>
+    <section id="projects" >
+      <div class="title reveal">
+        <h2 class="reveal-1" v-html="$t('home_page.projects.title')"></h2>
         <div class="line" />
       </div>
 
-      <div class="grid parallax-project-title" data-scroll data-scroll-speed="1">
-        <div class="grid-elm">
+      <div class="grid reveal parallax-project-title"  >
+        <div class="grid-elm reveal-1">
           <img src="../assets/images/png/mac1.png" alt="" />
           <div class="legend">
             <div class="left">
@@ -110,7 +110,7 @@
           </div>
         </div>
 
-        <div class="grid-elm">
+        <div class="grid-elm reveal-2">
           <img src="../assets/images/png/mac2.png" alt="" />
           <div class="legend">
             <div class="left">
@@ -128,7 +128,7 @@
           </div>
         </div>
 
-        <div class="grid-elm">
+        <div class="grid-elm reveal-3">
           <img src="../assets/images/png/iphone.png" alt="" />
           <div class="legend">
             <div class="left">
@@ -160,17 +160,17 @@
       </div>
     </section>
 
-    <section id="value" data-scroll-section>
-      <div class="title parallax-value-title">
+    <section id="value" class="reveal" >
+      <div class="title parallax-value-title reveal-1">
         <h2 v-html="$t('home_page.value.title')"></h2>
         <div class="line" />
       </div>
       <!-- <img class="background-line" src="../assets/images/svg/line-bottom.svg" alt=""> -->
     </section>
 
-      <section id="contact">
+      <section id="contact" class="reveal">
         <div class="title-box">
-          <div class="title">
+          <div class="title reveal-1">
             <img
               class="dark"
               src="../assets/images/svg/right-arrow.svg"
@@ -181,28 +181,23 @@
               v-html="$t('home_page.contact.title')"
             ></a>
           </div>
-          <div class="line" />
+          <div class="line reveal-2" />
         </div>
-        <h3 v-html="$t('home_page.contact.subtitle')"></h3>
+        <h3 class="reveal-3" v-html="$t('home_page.contact.subtitle')"></h3>
       </section>
 
-      <h3 id="sentence">
+      <h3 id="sentence" class="reveal">
         <span
-          class="special_text"
+          class="special_text reveal-1"
           v-html="$t('home_page.sentence.first')"
         ></span
-        ><br /><span v-html="$t('home_page.sentence.second')"></span>
+        ><br /><span class="reveal-2" v-html="$t('home_page.sentence.second')"></span>
       </h3>
-
-    <MainFooter data-scroll-section />
-    <!-- <MainFooter /> -->
   </div>
 </template>
 
 <script>
-import locomotiveScroll from "locomotive-scroll";
 import rallax from 'rallax.js'
-import MainFooter from "@/components/MainFooter.vue";
 
 export default {
   name: "Home-page",
@@ -224,20 +219,34 @@ export default {
     // eslint-disable-next-line
     const parallaxProjectTitle = rallax(".parallax-project-title", optionsFirstSpeed);
     // eslint-disable-next-line
-    const parallaxValueTitle = rallax(".parallax-value-title", optionsFirstSpeed);
+    // const parallaxValueTitle = rallax(".parallax-value-title", optionsFirstSpeed);
+
+    const threshold = .1
+    const options = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.5
+    }
+
+    const handleIntersect = function (entries, observer) {
+      entries.forEach(function (entry) {
+        if (entry.intersectionRatio > threshold) {
+          entry.target.classList.remove('reveal')
+          observer.unobserve(entry.target)
+        }
+      })
+    }
+
+    document.documentElement.classList.add('reveal-loaded')
+
+    window.addEventListener("DOMContentLoaded", function () {
+      const observer = new IntersectionObserver(handleIntersect, options)
+      const targets = document.querySelectorAll('.reveal')
+      targets.forEach(function (target) {
+        observer.observe(target)
+      })
+    })
   },
-  methods: {
-    initLocoScroll() {
-      const _self = this;
-      this.scroll = new locomotiveScroll({
-        el: _self.$refs["scrollSections"],
-        smooth: true,
-        smoothMobile: true,
-        getDirection: true,
-      });
-    },
-  },
-  components: { MainFooter },
 };
 </script>
 
@@ -259,6 +268,28 @@ export default {
     opacity: 0;
     z-index: -1000000;
   }
+}
+
+.reveal-loaded .reveal [class*="reveal-"] {
+    opacity: 0;
+    transform: translateY(60px);
+}
+
+.reveal-loaded [class*="reveal"]{
+    transition: 800ms ease-in-out;
+}
+
+/* On ajoute du délai */
+.reveal-loaded .reveal-2 {
+    transition-delay: 100ms;
+}
+
+.reveal-loaded .reveal-3 {
+    transition-delay: 200ms;
+}
+
+.reveal-loaded .reveal-4 {
+    transition-delay: 300ms;
 }
 
 .home {

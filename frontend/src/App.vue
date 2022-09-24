@@ -2,11 +2,13 @@
   <div id="app-content">
     <MainHeader :getSwitchStatus="getSwitchStatus"/>
     <router-view />
+    <MainFooter/>
   </div>
 </template>
 
 <script>
 import MainHeader from './components/MainHeader.vue'
+import MainFooter from './components/MainFooter.vue'
 
 export default {
   name: 'app',
@@ -18,8 +20,9 @@ export default {
   },
 
   components: {
-    MainHeader
-  },
+    MainHeader,
+    MainFooter
+},
   methods: {
     getSwitchStatus(switchStatus) {
       this.dark_mode = switchStatus
