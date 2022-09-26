@@ -8,14 +8,6 @@
       <img src="../assets/gif/in-progress.gif" alt="" />
     </div>
 
-    <!-- <div id="progress">
-      <h3>
-        Notre site et en développement, de ce fait certaine fonctionnalitées /
-        liens sont suceptible de ne pas fonctionnés.
-      </h3>
-      <img src="../assets/gif/in-progress.gif" alt="" />
-    </div> -->
-
     <section id="above_the_fold">
       <h1>
         <span class="special_text">Neza</span>
@@ -203,10 +195,15 @@
 
 export default {
   name: "Home-page",
+  data() {
+    return {
+      count_loader: 0,
+    };
+  },
   mounted() {
     const above_the_fold = document.getElementById("above_the_fold");
     const header = document.querySelector(".header").offsetHeight;
-    above_the_fold.style.height = `calc(100vh - ${header}px - 40px)`;
+    above_the_fold.style.height = `calc(100vh - ${header}px - 30px)`;
 
     // const optionsFirstSpeed = { speed: 0.1 };
     // const optionsSecondSpeed = { speed: 0.075 };
@@ -250,12 +247,10 @@ export default {
 
     document.documentElement.classList.add("reveal-loaded");
 
-    window.addEventListener("DOMContentLoaded", function () {
-      const observer = new IntersectionObserver(handleIntersect, options);
-      const targets = document.querySelectorAll(".reveal");
-      targets.forEach(function (target) {
-        observer.observe(target);
-      });
+    const observer = new IntersectionObserver(handleIntersect, options);
+    const targets = document.querySelectorAll(".reveal");
+    targets.forEach(function (target) {
+      observer.observe(target);
     });
 
     // $(document).on("mousemove", (event) => {
@@ -270,23 +265,6 @@ export default {
 
 <style lang="scss" scoped>
 @import "../assets/styles/_variables.scss";
-
-@keyframes progress {
-  0% {
-    opacity: 1;
-    z-index: 1000000;
-  }
-
-  90% {
-    opacity: 1;
-    z-index: 1000000;
-  }
-
-  100% {
-    opacity: 0;
-    z-index: -1000000;
-  }
-}
 
 .cursor {
   transition-timing-function: ease-out;
@@ -353,32 +331,6 @@ export default {
     @media screen and (max-width: 1160px) {
       opacity: 1;
       z-index: 1000000;
-    }
-  }
-
-  #progress {
-    width: 100vw;
-    height: 100vh;
-    position: fixed;
-    top: 0;
-    left: 0;
-    background-color: $white;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    opacity: 0;
-    animation: progress 5000ms linear both;
-
-    h3 {
-      width: 80%;
-      text-align: center;
-    }
-
-    img {
-      width: 20%;
-      margin: 0;
     }
   }
 

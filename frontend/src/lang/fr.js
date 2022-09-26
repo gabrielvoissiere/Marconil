@@ -56,6 +56,14 @@ const fr = {
             first: "Attention,",
             second: "seulement des gens ambieux peuvent tiller avec nous :)"
         }
+    },
+    about_page: {
+        title: 'A propos de nous',
+        text: 'Pour que la <span class="special_text">création</span> de votre site ne<br>sois plus un <span class="special_text">frein</span> dans le<br><span class="special_text">développement</span> de <span class="special_text">vos projets.</span>',
+        title_bis: 'Notre approche',
+        about_page_text: 'Neza est une agence spécialisée dans la création de site internet basée dans le sud de la France.<br>Fondée par Théo Chaput Tarrazi, Jules JARD et Élie-henry, nous travaillons maintenant avec de nombreux designer, graphiste, UX/UI et developpeur partout dans le monde pour réaliser vos sites internet.<br>Nous avons remarqué que pour beaucoup, créer un site devenez vite compliqué par manque de connaissance.<br>Neza propose un service simple et adapté en fonction de chaque personne à moindre coût.',
+        title_approche: 'Notre approche',
+        approche_page_text: 'Neza est une agence spécialisée dans la création de site internet basée dans le sud de la France.<br>Fondée par Théo Chaput Tarrazi, Jules JARD et Élie-henry, nous travaillons maintenant avec de nombreux designer, graphiste, UX/UI et developpeur partout dans le monde pour réaliser vos sites internet.<br>Nous avons remarqué que pour beaucoup, créer un site devenez vite compliqué par manque de connaissance.<br>Neza propose un service simple et adapté en fonction de chaque personne à moindre coût.',
     }
 }
 

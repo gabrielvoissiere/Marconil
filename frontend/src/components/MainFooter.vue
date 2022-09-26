@@ -70,7 +70,6 @@ export default {
             bottom: -10%;
             left: 15px;
             width: 100vw;
-            font-family: $title-font;
         }
     }
 </style>

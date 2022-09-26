@@ -1,15 +1,8 @@
 <template>
   <div class="about">
     <section id="above_the_fold" class="above_the_fold">
-      <router-link to="/about_page"
-        ><div class="line"></div>
-        <h2 v-html="$t('about_page.title')"></h2
-      ></router-link>
-      <h3 v-html="$t('about_page.text')"></h3>
-      <router-link to="/approche_page"
-        ><div class="line"></div>
-        <h2 v-html="$t('about_page.title_bis')"></h2
-      ></router-link>
+      <h2 v-html="$t('about_page.title')"></h2>
+      <p v-html="$t('about_page.about_page_text')"></p>
     </section>
 
     <section id="contact" class="reveal">
@@ -61,47 +54,21 @@ export default {
   #above_the_fold {
     width: calc(100vw - (2 * $gutter-size));
     display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: flex-end;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
     font-family: $title-font;
-    font-size: 2.8rem;
+    font-size: $font-size-large;
 
-    a {
-      text-decoration: none;
-      position: relative;
-
-      .line {
-        position: absolute;
-        bottom: -10px;
-        width: 30%;
-        height: 2px;
-        background-color: $green;
-        transition: 300ms ease-in-out;
-      }
-
-      &:hover {
-        cursor: pointer;
-        color: $green;
-        transition: 200ms ease-in-out;
-
-        .line {
-          width: 100%;
-        }
-      }
-
-      &:first-child {
-        margin-right: calc(4 * $margin-large);
-      }
-
-      &:last-child {
-        margin-right: calc(4 * $margin-large);
-      }
+    h2 {
+      color: $green;
+      font-weight: $bold;
     }
 
-    h3 {
-      align-self: flex-start;
-      font-size: 2.8rem;
+    p {
+      font-size: calc(2 * $font-size-medium);
+      width: 45%;
+      margin-right: calc(1 * $margin-large);
     }
   }
 
