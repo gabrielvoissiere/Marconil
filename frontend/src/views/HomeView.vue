@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div class="home" ref="scrollSections">
     <div id="arf">
       <h3>
         Oups ! Notre site n'est pas encore accessible sur mobile / tablette ...
@@ -7,22 +7,25 @@
       <img src="../assets/gif/in-progress.gif" alt="" />
     </div>
 
-    <div id="progress">
+    <!-- <div id="progress">
       <h3>
         Notre site et en développement, de ce fait certaine fonctionnalitées /
         liens sont suceptible de ne pas fonctionnés.
       </h3>
       <img src="../assets/gif/in-progress.gif" alt="" />
-    </div>
+    </div> -->
 
-    <section id="above_the_fold">
+    <section id="above_the_fold" >
       <h1>
         <span class="special_text">Neza</span>
         <span v-html="$t('home_page.above_the_fold.title')"></span>
       </h1>
       <a
+        
+        
         href="mailto:nezaagency@gmail.com"
         v-html="$t('home_page.above_the_fold.btn')"
+        class="parallax-cta"
       ></a>
       <img
         class="background-line"
@@ -31,12 +34,12 @@
       />
     </section>
 
-    <section id="work">
-      <h2 v-html="$t('home_page.work.title')"></h2>
-      <h3 v-html="$t('home_page.work.subtitle')"></h3>
+    <section id="work"  class="reveal">
+      <h2 class="parallax-work-title" v-html="$t('home_page.work.title')"></h2>
+      <h3 class="parallax-work-subtitle" v-html="$t('home_page.work.subtitle')"></h3>
 
-      <div class="work-box">
-        <div class="box">
+      <div class="work-box"  >
+        <div class="box reveal-1">
           <div class="title">
             <h4 v-html="$t('home_page.work.first_block.title')"></h4>
             <div class="line" />
@@ -44,7 +47,7 @@
           <p v-html="$t('home_page.work.first_block.text')"></p>
         </div>
 
-        <div class="box">
+        <div class="box reveal-2">
           <div class="title">
             <h4 v-html="$t('home_page.work.second_block.title')"></h4>
             <div class="line" />
@@ -52,7 +55,7 @@
           <p v-html="$t('home_page.work.second_block.text')"></p>
         </div>
 
-        <div class="box">
+        <div class="box reveal-3">
           <div class="title">
             <h4 v-html="$t('home_page.work.third_block.title')"></h4>
             <div class="line" />
@@ -60,7 +63,7 @@
           <p v-html="$t('home_page.work.third_block.text')"></p>
         </div>
 
-        <div class="box">
+        <div class="box reveal-4">
           <div class="title">
             <h4 v-html="$t('home_page.work.fourth_block.title')"></h4>
             <div class="line" />
@@ -70,10 +73,10 @@
       </div>
     </section>
 
-    <section id="who">
-      <div class="title">
-        <h2 v-html="$t('home_page.who.title')"></h2>
-        <div class="line" />
+    <section id="who"  class="">
+      <div class="title reveal parallax-who"  >
+        <h2 class="reveal-1" v-html="$t('home_page.who.title')"></h2>
+        <div class="line reveal-2"   />
       </div>
       <img
         class="background-line"
@@ -82,14 +85,14 @@
       />
     </section>
 
-    <section id="projects">
-      <div class="title">
-        <h2 v-html="$t('home_page.projects.title')"></h2>
+    <section id="projects" >
+      <div class="title reveal">
+        <h2 class="reveal-1" v-html="$t('home_page.projects.title')"></h2>
         <div class="line" />
       </div>
 
-      <div class="grid">
-        <div class="grid-elm">
+      <div class="grid reveal parallax-project-title"  >
+        <div class="grid-elm reveal-1">
           <img src="../assets/images/png/mac1.png" alt="" />
           <div class="legend">
             <div class="left">
@@ -99,7 +102,7 @@
               <p>beatmaking school studio</p>
             </div>
             <div class="right">
-              <p>2022</p>
+              <p>2021</p>
               <router-link class="project-link" to="/"
                 >En savoir plus</router-link
               >
@@ -107,14 +110,14 @@
           </div>
         </div>
 
-        <div class="grid-elm">
+        <div class="grid-elm reveal-2">
           <img src="../assets/images/png/mac2.png" alt="" />
           <div class="legend">
             <div class="left">
               <p>
-                Urban vision - <span class="special_text">ザイン + ウェ</span>
+                Paula Scher - <span class="special_text">ザイン + ウェ</span>
               </p>
-              <p>beatmaking school studio</p>
+              <p>Artiste portfolio</p>
             </div>
             <div class="right">
               <p>2022</p>
@@ -125,14 +128,12 @@
           </div>
         </div>
 
-        <div class="grid-elm">
+        <div class="grid-elm reveal-3">
           <img src="../assets/images/png/iphone.png" alt="" />
           <div class="legend">
             <div class="left">
-              <p>
-                Urban vision - <span class="special_text">ザイン + ウェ</span>
-              </p>
-              <p>beatmaking school studio</p>
+              <p>Florame - <span class="special_text">ザイン + ウェ</span></p>
+              <p>Diagnostic</p>
             </div>
             <div class="right">
               <p>2022</p>
@@ -159,44 +160,92 @@
       </div>
     </section>
 
-    <section id="value">
-      <div class="title">
+    <section id="value" class="reveal" >
+      <div class="title parallax-value-title reveal-1">
         <h2 v-html="$t('home_page.value.title')"></h2>
         <div class="line" />
       </div>
       <!-- <img class="background-line" src="../assets/images/svg/line-bottom.svg" alt=""> -->
     </section>
 
-    <section id="contact">
-      <div class="title-box">
-        <div class="title">
-          <img class="dark" src="../assets/images/svg/right-arrow.svg" alt="" />
-          <a
-            href="mailto:nezaagency@gmail.com"
-            v-html="$t('home_page.contact.title')"
-          ></a>
+      <section id="contact" class="reveal">
+        <div class="title-box">
+          <div class="title reveal-1">
+            <img
+              class="dark"
+              src="../assets/images/svg/right-arrow.svg"
+              alt=""
+            />
+            <a
+              href="mailto:nezaagency@gmail.com"
+              v-html="$t('home_page.contact.title')"
+            ></a>
+          </div>
+          <div class="line reveal-2" />
         </div>
-        <div class="line" />
-      </div>
-      <h3 v-html="$t('home_page.contact.subtitle')"></h3>
-    </section>
+        <h3 class="reveal-3" v-html="$t('home_page.contact.subtitle')"></h3>
+      </section>
 
-    <h3 id="sentence">
-      <span class="special_text" v-html="$t('home_page.sentence.first')"></span
-      ><br /><span v-html="$t('home_page.sentence.second')"></span>
-    </h3>
-
-    <!-- <MainFooter /> -->
+      <h3 id="sentence" class="reveal">
+        <span
+          class="special_text reveal-1"
+          v-html="$t('home_page.sentence.first')"
+        ></span
+        ><br /><span class="reveal-2" v-html="$t('home_page.sentence.second')"></span>
+      </h3>
   </div>
 </template>
 
 <script>
+import rallax from 'rallax.js'
+
 export default {
   name: "Home-page",
   mounted() {
     const above_the_fold = document.getElementById("above_the_fold");
     const header = document.querySelector(".header").offsetHeight;
     above_the_fold.style.height = `calc(100vh - ${header}px - 40px)`;
+
+    const optionsFirstSpeed = { speed: 0.1 };
+    const optionsSecondSpeed = { speed: 0.075 };
+    // eslint-disable-next-line
+    const parallaxCta = rallax(".parallax-cta", optionsFirstSpeed);
+    // eslint-disable-next-line
+    const parallaxWorkSubtitle = rallax(".parallax-work-subtitle", optionsSecondSpeed);
+    // eslint-disable-next-line
+    const parallaxWorkTitle = rallax(".parallax-work-title", optionsSecondSpeed);
+    // eslint-disable-next-line
+    const parallaxWho = rallax(".parallax-who", optionsFirstSpeed);
+    // eslint-disable-next-line
+    const parallaxProjectTitle = rallax(".parallax-project-title", optionsFirstSpeed);
+    // eslint-disable-next-line
+    // const parallaxValueTitle = rallax(".parallax-value-title", optionsFirstSpeed);
+
+    const threshold = .1
+    const options = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.5
+    }
+
+    const handleIntersect = function (entries, observer) {
+      entries.forEach(function (entry) {
+        if (entry.intersectionRatio > threshold) {
+          entry.target.classList.remove('reveal')
+          observer.unobserve(entry.target)
+        }
+      })
+    }
+
+    document.documentElement.classList.add('reveal-loaded')
+
+    window.addEventListener("DOMContentLoaded", function () {
+      const observer = new IntersectionObserver(handleIntersect, options)
+      const targets = document.querySelectorAll('.reveal')
+      targets.forEach(function (target) {
+        observer.observe(target)
+      })
+    })
   },
 };
 </script>
@@ -221,10 +270,32 @@ export default {
   }
 }
 
+.reveal-loaded .reveal [class*="reveal-"] {
+    opacity: 0;
+    transform: translateY(60px);
+}
+
+.reveal-loaded [class*="reveal"]{
+    transition: 800ms ease-in-out;
+}
+
+/* On ajoute du délai */
+.reveal-loaded .reveal-2 {
+    transition-delay: 100ms;
+}
+
+.reveal-loaded .reveal-3 {
+    transition-delay: 200ms;
+}
+
+.reveal-loaded .reveal-4 {
+    transition-delay: 300ms;
+}
+
 .home {
   display: flex;
   flex-direction: column;
-  align-content: center;
+  align-items: center;
 
   #arf {
     width: 100vw;
@@ -318,7 +389,7 @@ export default {
       font-size: 3.75rem;
       font-family: $title-font;
       font-weight: 500;
-      margin-top: 10px;
+      margin-top: 50px;
 
       @media screen and (max-width: 1280px) {
         font-size: 3.25rem;
@@ -400,6 +471,10 @@ export default {
             margin-top: $margin-x-small;
             margin-bottom: $margin-large;
           }
+        }
+
+        p {
+          font-size: $font-size-normal;
         }
       }
     }
@@ -505,6 +580,7 @@ export default {
           justify-content: space-between;
           align-items: center;
           font-size: $font-size-normal;
+          margin-top: $margin-small;
 
           .right {
             text-align: right;
@@ -528,7 +604,7 @@ export default {
 
   #value {
     position: relative;
-    height: 120vh;
+    height: 140vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -567,10 +643,6 @@ export default {
     width: calc(100vw - (2 * $gutter-size));
     transition: 300ms ease-in-out;
 
-    h2 {
-      font-weight: 300;
-    }
-
     h3 {
       font-size: $font-size-medium;
       color: $green;
@@ -590,6 +662,7 @@ export default {
 
         a {
           text-decoration: none;
+          font-size: 1.5em;
         }
 
         img {

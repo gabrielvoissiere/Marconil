@@ -32,7 +32,7 @@ export default {
     .footer {
         margin-top: $margin-medium;
         width: 100vw;
-        height: 400px;
+        height: 400px !important;
         background-color: $black;
         color: white;
         font-size: $font-size-normal;

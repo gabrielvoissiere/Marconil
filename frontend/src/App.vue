@@ -2,7 +2,7 @@
   <div id="app-content">
     <MainHeader :getSwitchStatus="getSwitchStatus"/>
     <router-view />
-    <MainFooter />
+    <MainFooter/>
   </div>
 </template>
 
@@ -22,7 +22,7 @@ export default {
   components: {
     MainHeader,
     MainFooter
-  },
+},
   methods: {
     getSwitchStatus(switchStatus) {
       this.dark_mode = switchStatus
