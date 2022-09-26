@@ -1,5 +1,6 @@
 ::-webkit-scrollbar {
     display: none;
+    transition-duration: 500ms;
 }
 
 html {
