@@ -149,7 +149,7 @@ export default {
 
 nav {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: flex-start;
 
   a {
@@ -163,6 +163,10 @@ nav {
     &:hover {
       color: $green;
       text-decoration: underline;
+    }
+
+    &:nth-child(2) {
+      margin: 0 10px;
     }
   }
 }
