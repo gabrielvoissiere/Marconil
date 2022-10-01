@@ -1,12 +1,17 @@
 <template>
   <div id="home" class="home" ref="scrollSections">
+    <img
+      src="../assets/images/svg/line-phone-atf.svg"
+      alt=""
+      class="phone-line"
+    />
     <!-- <div class="cursor"></div> -->
-    <div id="arf">
+    <!-- <div id="arf">
       <h3>
         Oups ! Notre site n'est pas encore accessible sur mobile / tablette ...
       </h3>
       <img src="../assets/gif/in-progress.gif" alt="" />
-    </div>
+    </div> -->
 
     <section id="above_the_fold">
       <h1>
@@ -299,40 +304,51 @@ export default {
   transition-delay: 300ms;
 }
 
+.phone-line {
+  display: none;
+
+  @media screen and (max-width: 428px) {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 8px;
+  }
+}
+
 .home {
   display: flex;
   flex-direction: column;
   align-items: center;
 
-  #arf {
-    width: 100vw;
-    height: 100vh;
-    position: fixed;
-    top: 0;
-    left: 0;
-    background-color: $white;
-    z-index: -1000000;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    opacity: 0;
+  // #arf {
+  //   width: 100vw;
+  //   height: 100vh;
+  //   position: fixed;
+  //   top: 0;
+  //   left: 0;
+  //   background-color: $white;
+  //   z-index: -1000000;
+  //   overflow: hidden;
+  //   display: flex;
+  //   flex-direction: column;
+  //   justify-content: center;
+  //   align-items: center;
+  //   opacity: 0;
 
-    h3 {
-      width: 80%;
-      text-align: center;
-    }
+  //   h3 {
+  //     width: 80%;
+  //     text-align: center;
+  //   }
 
-    img {
-      width: 80%;
-    }
+  //   img {
+  //     width: 80%;
+  //   }
 
-    @media screen and (max-width: 1160px) {
-      opacity: 1;
-      z-index: 1000000;
-    }
-  }
+  //   @media screen and (max-width: 1160px) {
+  //     opacity: 1;
+  //     z-index: 1000000;
+  //   }
+  // }
 
   #line-background {
     position: absolute;
@@ -366,6 +382,10 @@ export default {
     position: relative;
     width: calc(100vw - (2 * $gutter-size));
 
+    @media screen and (max-width: 428px) {
+      width: calc(100vw - (2 * $gutter-size-phone));
+    }
+
     h1 {
       font-size: 3.75rem;
       font-family: $title-font;
@@ -374,6 +394,12 @@ export default {
 
       @media screen and (max-width: 1280px) {
         font-size: 3.25rem;
+      }
+
+      @media screen and (max-width: 428px) {
+        font-size: 5rem;
+        width: 90%;
+        margin-top: 0;
       }
     }
 
@@ -389,6 +415,10 @@ export default {
       font-weight: 300;
       text-decoration: none;
       z-index: 100000;
+
+      @media screen and (max-width: 428px) {
+        margin-top: 42px;
+      }
     }
 
     .background-line {
@@ -397,17 +427,29 @@ export default {
       left: 50%;
       transform: translateX(-50%);
       width: 100vw;
+
+      @media screen and (max-width: 428px) {
+        display: none;
+      }
     }
   }
 
   #work {
     width: calc(100vw - (2 * $gutter-size));
 
+    @media screen and (max-width: 428px) {
+      width: calc(100vw - (2 * $gutter-size-phone));
+    }
+
     h2 {
       font-size: $font-size-x-large;
       text-align: right;
       font-family: $title-font;
       font-weight: 500;
+
+      @media screen and (max-width: 428px) {
+        text-align: center;
+      }
     }
 
     h3 {
@@ -415,6 +457,10 @@ export default {
       color: $green;
       text-align: right;
       font-weight: 300;
+
+      @media screen and (max-width: 428px) {
+        display: none;
+      }
     }
 
     .work-box {
@@ -426,12 +472,23 @@ export default {
         margin-top: $margin-large;
       }
 
+      @media screen and (max-width: 428px) {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+      }
+
       .box {
         display: flex;
         flex-direction: column;
         width: 22%;
         text-align: center;
         font-size: $font-size-normal;
+
+        @media screen and (max-width: 428px) {
+          width: 80%;
+          margin-top: 42px;
+        }
 
         .title {
           font-size: 2.8rem;
@@ -451,6 +508,10 @@ export default {
             width: 123px;
             margin-top: $margin-x-small;
             margin-bottom: $margin-large;
+
+            @media screen and (max-width: 428px) {
+              margin-bottom: $margin-medium;
+            }
           }
         }
 
@@ -470,9 +531,19 @@ export default {
     position: relative;
     font-weight: 300;
 
+    @media screen and (max-width: 428px) {
+      width: calc(100vw - (2 * $gutter-size-phone));
+    }
+
     h2 {
       font-size: 3.125rem;
       text-align: center;
+
+      @media screen and (max-width: 428px) {
+        text-align: left;
+        text-transform: uppercase;
+        line-height: 1.25;
+      }
     }
 
     .title {
@@ -492,6 +563,10 @@ export default {
         width: 178px;
         margin-top: $margin-x-small;
         margin-bottom: $margin-medium;
+
+        @media screen and (max-width: 428px) {
+          display: none;
+        }
       }
     }
 
@@ -501,11 +576,19 @@ export default {
       top: -150px;
       left: -200px;
       z-index: -10;
+
+      @media screen and (max-width: 428px) {
+        display: none;
+      }
     }
   }
 
   #projects {
     width: calc(100vw - (2 * $gutter-size));
+
+    @media screen and (max-width: 428px) {
+      width: calc(100vw - (2 * $gutter-size-phone));
+    }
 
     .title {
       font-size: $font-size-large;
@@ -530,12 +613,23 @@ export default {
     .grid {
       display: grid;
       grid-template-columns: repeat(2, 0.5fr);
+
+      @media screen and (max-width: 428px) {
+        grid-template-columns: 1fr;
+        margin-top: 42px;
+      }
       // gap: $gap-size;
 
       .grid-elm {
         display: flex;
         flex-direction: column;
         align-items: center;
+
+        @media screen and (max-width: 428px) {
+          &:nth-child(2) {
+            margin-top: 42px;
+          }
+        }
 
         img {
           object-fit: cover;
@@ -546,12 +640,25 @@ export default {
           grid-column: 1 / 3;
           margin-top: 20px;
 
+          @media screen and (max-width: 428px) {
+            grid-column: 1;
+            margin-top: 0;
+          }
+
           img {
             width: 40%;
+
+            @media screen and (max-width: 428px) {
+              width: 100%;
+            }
           }
 
           .legend {
             width: 30%;
+
+            @media screen and (max-width: 428px) {
+              width: 75%;
+            }
           }
         }
 
@@ -591,6 +698,10 @@ export default {
     justify-content: center;
     width: calc(100vw - (2 * $gutter-size));
 
+    @media screen and (max-width: 428px) {
+      width: calc(100vw - (2 * $gutter-size-phone));
+    }
+
     .title {
       font-size: 4rem;
       display: flex;
@@ -598,12 +709,20 @@ export default {
       align-items: center;
       font-family: $title-font;
 
+      @media screen and (max-width: 428px) {
+        text-align: center;
+      }
+
       .line {
         height: 1px;
         background-color: $black;
         width: 334px;
         margin-top: $margin-x-small;
         margin-bottom: $margin-medium;
+
+        @media screen and (max-width: 428px) {
+          display: none;
+        }
       }
     }
 
@@ -623,6 +742,10 @@ export default {
     margin-bottom: calc($margin-large * 3);
     width: calc(100vw - (2 * $gutter-size));
     transition: 300ms ease-in-out;
+
+    @media screen and (max-width: 428px) {
+      width: calc(100vw - (2 * $gutter-size-phone));
+    }
 
     h3 {
       font-size: $font-size-medium;
@@ -677,6 +800,12 @@ export default {
     font-size: $font-size-large;
     font-weight: 300;
     font-family: $title-font;
+
+    @media screen and (max-width: 428px) {
+      width: calc(100vw - (2 * $gutter-size-phone));
+      text-align: center;
+      line-height: 1.25;
+    }
   }
 }
 </style>

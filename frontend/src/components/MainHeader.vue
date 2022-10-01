@@ -1,8 +1,8 @@
 <template>
   <div class="header">
-    <div id="progress">
+    <!-- <div id="progress">
       <h3>{{ count_loader }}</h3>
-    </div>
+    </div> -->
     <router-link id="title-box" to="/">
       <h1 v-html="$t('header.title')"></h1>
       <p>ウェブデザイン ウェブ開発</p>
@@ -10,7 +10,11 @@
 
     <nav>
       <router-link to="/about" v-html="$t('header.nav.first')"></router-link>
-      <a v-if="current_page === '/' || current_page === '/#projects'" href="#projects" v-html="$t('header.nav.second')"></a>
+      <a
+        v-if="current_page === '/' || current_page === '/#projects'"
+        href="#projects"
+        v-html="$t('header.nav.second')"
+      ></a>
       <!-- <router-link to="/contact" v-html="$t('header.nav.third')"></router-link> -->
       <a href="mailto:nezaagency@gmail.com" v-html="$t('header.nav.third')"></a>
     </nav>
@@ -28,7 +32,7 @@ export default {
   data() {
     return {
       count_loader: 0,
-      current_page: '/',
+      current_page: "/",
     };
   },
   props: {
@@ -73,13 +77,13 @@ export default {
       }, 25);
     }, 4000);
   },
-  watch:{
+  watch: {
     // eslint-disable-next-line
-    $route (to, from){
+    $route(to, from) {
       console.log(to.fullPath);
-        this.current_page = to.fullPath;
-    }
-} 
+      this.current_page = to.fullPath;
+    },
+  },
 };
 </script>
 
@@ -131,11 +135,19 @@ export default {
   display: flex;
   justify-content: space-between;
   width: calc(100vw - ($gutter-size * 2));
+
+  @media screen and (max-width: 428px) {
+  width: calc(100vw - ($gutter-size-phone * 2));
+  }
 }
 
 #title-box {
   text-decoration: none;
   text-align: left;
+
+  @media screen and (max-width: 428px) {
+    display: none;
+  }
 
   h1 {
     font-size: $font-size-medium;
@@ -151,6 +163,14 @@ nav {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+
+  @media screen and (max-width: 428px) {
+    width: 100%;
+    a:first-child,
+    a:nth-child(2) {
+      display: none;
+    }
+  }
 
   a {
     text-decoration: none;
@@ -173,6 +193,10 @@ nav {
     display: inline-block;
     width: 57px;
     height: 28px;
+
+    @media screen and (max-width: 428px) {
+      display: none;
+    }
 
     input {
       opacity: 0;
