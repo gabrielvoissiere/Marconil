@@ -28,15 +28,15 @@ const fr = {
             },
             second_block: {
                 title: "Stratégie",
-                text: "Nous commencerons par un appel à mieux nous connaître. Connaissez-vous, faites partie du travail pour comprendre précisément ce que vous voulez. Nous vous donnerons quelques conseils, et lorsque vous nous donnerez le feu vert, nous y allons !"
+                text: "La stratégie se traduira par une mise en place des outils relationnels nécessaires à la production ainsi qu’une préparation du terrain pour réaliser le projet. Réflexion du projet, énonciation des  problématiques, mise en place de l’organisation et du  management sont des clefs essentielles."
             },
             third_block: {
                 title: "Design",
-                text: "Nous commencerons par un appel à mieux nous connaître. Connaissez-vous, faites partie du travail pour comprendre précisément ce que vous voulez. Nous vous donnerons quelques conseils, et lorsque vous nous donnerez le feu vert, nous y allons !"
+                text: "Une fois le projet pris en main nous pourrons passer au design. Nous passerons à la mise en place de la charte graphique, du moodboard, le maquettage et au prototypage. Une fois que vous nous aurez valider les maquettes nous pourrons passer à l’étape finale."
             },
             fourth_block: {
                 title: "Développement",
-                text: "Nous commencerons par un appel à mieux nous connaître. Connaissez-vous, faites partie du travail pour comprendre précisément ce que vous voulez. Nous vous donnerons quelques conseils, et lorsque vous nous donnerez le feu vert, nous y allons !"
+                text: "Suite au design nous définirons comment nous développerons votre site pour une meilleure optimisation. Vous aurez la possibilité de voir le développement en temps réel. Une fois finis nous resterons à vos côtés pour pouvoir modifier le site quand vous le voulez."
             }
         },
         who: {
