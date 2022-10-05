@@ -14,10 +14,10 @@
     </div> -->
 
     <section id="above_the_fold">
-      <h1>
+      <h2>
         <span class="special_text">Neza</span>
         <span v-html="$t('home_page.above_the_fold.title')"></span>
-      </h1>
+      </h2>
       <a
         href="mailto:nezaagency@gmail.com"
         v-html="$t('home_page.above_the_fold.btn')"
@@ -387,7 +387,7 @@ export default {
       width: calc(100vw - (2 * $gutter-size-phone));
     }
 
-    h1 {
+    h2 {
       font-size: 3.75rem;
       font-family: $title-font;
       font-weight: 500;
