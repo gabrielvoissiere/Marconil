@@ -95,3 +95,15 @@ body {
     transition: 200ms;
     font-family: 'Montserrat-regular', Arial, Helvetica, sans-serif;
 }
+
+#description {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    z-index: 1000000;
+}

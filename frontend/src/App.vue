@@ -41,7 +41,10 @@ export default {
         }
       }
     }
-  }
+  },
+  mounted() {
+    document.getElementById('description').style.display = 'none'
+  },
 }
 </script>
 
