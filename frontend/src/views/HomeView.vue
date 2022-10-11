@@ -460,6 +460,7 @@ section {
 
     @media screen and (max-width: 428px) {
       width: calc(100vw - (2 * $gutter-size-phone));
+      justify-content: center !important;
     }
 
     h2 {
@@ -500,6 +501,7 @@ section {
     a.anchor {
       font-size: $font-size-normal;
       text-decoration: none;
+      margin-bottom: 42px;
     }
 
     .background-line {
@@ -520,6 +522,10 @@ section {
 
     @media screen and (max-width: 428px) {
       width: calc(100vw - (2 * $gutter-size-phone));
+      display: flex !important;
+      flex-direction: column;
+      justify-content: center !important;
+      align-items: center;
     }
 
     h2 {
