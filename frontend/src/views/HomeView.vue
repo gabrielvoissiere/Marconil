@@ -5,25 +5,26 @@
       alt=""
       class="phone-line"
     />
-    <!-- <div class="cursor"></div> -->
-    <!-- <div id="arf">
-      <h3>
-        Oups ! Notre site n'est pas encore accessible sur mobile / tablette ...
-      </h3>
-      <img src="../assets/gif/in-progress.gif" alt="" />
-    </div> -->
 
     <section id="above_the_fold">
       <a href="#contact-phone" class="mobile anchor">Contact</a>
-      <h2>
-        <span class="special_text">Neza</span>
-        <span v-html="$t('home_page.above_the_fold.title')"></span>
-      </h2>
-      <a
-        href="mailto:nezaagency@gmail.com"
-        v-html="$t('home_page.above_the_fold.btn')"
-        class="parallax-cta"
-      ></a>
+      <div class="cache-box">
+        <div class="cache"></div>
+        <h2>
+          <span class="special_text">Neza</span>
+          <span v-html="$t('home_page.above_the_fold.title')"></span>
+        </h2>
+      </div>
+      <div class="cache-box-link">
+        <div class="cache"></div>
+        <p>
+          <a
+            href="mailto:nezaagency@gmail.com"
+            v-html="$t('home_page.above_the_fold.btn')"
+            class="parallax-cta"
+          ></a>
+        </p>
+      </div>
       <img
         class="background-line"
         src="../assets/images/svg/line-top.svg"
@@ -450,6 +451,35 @@ section {
     }
   }
 
+  @keyframes apparition {
+    0% {
+      transform: translateY(110px);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes apparition_link {
+    0% {
+      transform: translateY(100%);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes apparition_line {
+    0% {
+      opacity: 0;
+      transform: translate(-50%, 100px);
+    }
+    100% {
+      opacity: 1;
+      transform: translate(-50%, 0);
+    }
+  }
+
   #above_the_fold {
     display: flex;
     flex-direction: column;
@@ -458,50 +488,96 @@ section {
     position: relative;
     width: calc(100vw - (2 * $gutter-size));
 
+    a.anchor {
+      font-size: $font-size-normal;
+      text-decoration: none;
+      margin-bottom: 42px;
+    }
+
     @media screen and (max-width: 428px) {
       width: calc(100vw - (2 * $gutter-size-phone));
       justify-content: center !important;
     }
 
-    h2 {
-      font-size: 3.75rem;
-      font-family: $title-font;
-      font-weight: 500;
-      margin-top: 50px;
+    .cache-box {
+      position: relative;
 
-      @media screen and (max-width: 1280px) {
-        font-size: 3.25rem;
+      .cache {
+        position: absolute;
+        bottom: -100%;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 2;
+        background-color: $white;
+
+        @media screen and (max-width: 428px) {
+          background-color: transparent;
+        }
       }
 
-      @media screen and (max-width: 428px) {
-        font-size: 5rem;
-        width: 90%;
-        margin-top: 0;
+      h2 {
+        font-size: 3.75rem;
+        font-family: $title-font;
+        font-weight: 500;
+        margin-top: 50px;
+
+        animation: apparition 2000ms ease-in-out 6500ms both;
+
+        @media screen and (max-width: 1280px) {
+          font-size: 3.25rem;
+        }
+
+        @media screen and (max-width: 428px) {
+          font-size: 5rem;
+          width: 90%;
+          margin-top: 0;
+          animation: none;
+        }
       }
     }
 
-    a:not(.anchor) {
-      background-color: $green;
-      padding: 15px 25px;
-      border: none;
-      color: $white;
-      font-size: $font-size-normal;
+    .cache-box-link {
+      position: relative;
       margin-top: 20px;
-      font-family: "Montserrat-regular";
-      font-size: 1.125rem;
-      font-weight: 300;
-      text-decoration: none;
-      z-index: 100000;
+      z-index: 3;
 
-      @media screen and (max-width: 428px) {
-        margin-top: 42px;
+      .cache {
+        position: absolute;
+        left: 50%;
+        bottom: calc(-102%);
+        transform: translateX(-50%);
+        width: 102%;
+        height: 52px;
+        background-color: $white;
+        z-index: 2;
       }
-    }
 
-    a.anchor {
-      font-size: $font-size-normal;
-      text-decoration: none;
-      margin-bottom: 42px;
+      p {
+        animation: apparition_link 2000ms ease-in-out 7000ms both;
+        padding: 15px 25px;
+        background-color: $green;
+
+        @media screen and (max-width: 428px) {
+          animation: none;
+        }
+      }
+
+      a {
+        border: none;
+        color: $white;
+        font-size: $font-size-normal;
+        font-family: "Montserrat-regular";
+        font-size: 1.125rem;
+        font-weight: 300;
+        text-decoration: none;
+        z-index: 100000;
+        // 7000ms
+
+        @media screen and (max-width: 428px) {
+          margin-top: 42px;
+        }
+      }
     }
 
     .background-line {
@@ -510,6 +586,9 @@ section {
       left: 50%;
       transform: translateX(-50%);
       width: 100vw;
+      z-index: 3;
+
+      animation: apparition_line 2000ms ease-in-out 6000ms both;
 
       @media screen and (max-width: 428px) {
         display: none;
