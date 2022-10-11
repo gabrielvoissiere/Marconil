@@ -14,6 +14,7 @@
     </div> -->
 
     <section id="above_the_fold">
+      <a href="#contact-phone" class="mobile anchor">Contact</a>
       <h2>
         <span class="special_text">Neza</span>
         <span v-html="$t('home_page.above_the_fold.title')"></span>
@@ -38,38 +39,47 @@
       ></h3>
 
       <div class="work-box">
-        <div class="box reveal-1">
-          <div class="title">
-            <h4 v-html="$t('home_page.work.first_block.title')"></h4>
-            <div class="line" />
+        <div id="slider" class="slider">
+          <div class="box reveal-1">
+            <div class="title">
+              <h4 v-html="$t('home_page.work.first_block.title')"></h4>
+              <div class="line" />
+            </div>
+            <p v-html="$t('home_page.work.first_block.text')"></p>
           </div>
-          <p v-html="$t('home_page.work.first_block.text')"></p>
-        </div>
 
-        <div class="box reveal-2">
-          <div class="title">
-            <h4 v-html="$t('home_page.work.second_block.title')"></h4>
-            <div class="line" />
+          <div class="box reveal-2">
+            <div class="title">
+              <h4 v-html="$t('home_page.work.second_block.title')"></h4>
+              <div class="line" />
+            </div>
+            <p v-html="$t('home_page.work.second_block.text')"></p>
           </div>
-          <p v-html="$t('home_page.work.second_block.text')"></p>
-        </div>
 
-        <div class="box reveal-3">
-          <div class="title">
-            <h4 v-html="$t('home_page.work.third_block.title')"></h4>
-            <div class="line" />
+          <div class="box reveal-3">
+            <div class="title">
+              <h4 v-html="$t('home_page.work.third_block.title')"></h4>
+              <div class="line" />
+            </div>
+            <p v-html="$t('home_page.work.third_block.text')"></p>
           </div>
-          <p v-html="$t('home_page.work.third_block.text')"></p>
-        </div>
 
-        <div class="box reveal-4">
-          <div class="title">
-            <h4 v-html="$t('home_page.work.fourth_block.title')"></h4>
-            <div class="line" />
+          <div class="box reveal-4">
+            <div class="title">
+              <h4 v-html="$t('home_page.work.fourth_block.title')"></h4>
+              <div class="line" />
+            </div>
+            <p v-html="$t('home_page.work.fourth_block.text')"></p>
           </div>
-          <p v-html="$t('home_page.work.fourth_block.text')"></p>
         </div>
       </div>
+
+      <img
+        class="dark mobile"
+        id="sliderBtn"
+        src="../assets/images/svg/right-arrow.svg"
+        alt=""
+      />
     </section>
 
     <section id="who" class="">
@@ -86,11 +96,18 @@
 
     <section id="projects">
       <div class="title reveal">
-        <h2 class="reveal-1" v-html="$t('home_page.projects.title')"></h2>
+        <h2
+          class="reveal-1 desktop"
+          v-html="$t('home_page.projects.title')"
+        ></h2>
+        <h2
+          class="reveal-1 mobile"
+          v-html="$t('home_page.projects.title_phone')"
+        ></h2>
         <div class="line" />
       </div>
 
-      <div class="grid reveal parallax-project-title">
+      <div class="grid reveal parallax-project-title desktop">
         <div class="grid-elm reveal-1">
           <img src="../assets/images/png/mac1.png" alt="" />
           <div class="legend">
@@ -167,7 +184,7 @@
       <!-- <img class="background-line" src="../assets/images/svg/line-bottom.svg" alt=""> -->
     </section>
 
-    <section id="contact" class="reveal">
+    <section id="contact" class="reveal desktop">
       <div class="title-box">
         <div class="title reveal-1">
           <img class="dark" src="../assets/images/svg/right-arrow.svg" alt="" />
@@ -181,7 +198,7 @@
       <h3 class="reveal-3" v-html="$t('home_page.contact.subtitle')"></h3>
     </section>
 
-    <h3 id="sentence" class="reveal">
+    <h3 id="sentence" class="reveal desktop">
       <span
         class="special_text reveal-1"
         v-html="$t('home_page.sentence.first')"
@@ -191,6 +208,17 @@
         v-html="$t('home_page.sentence.second')"
       ></span>
     </h3>
+
+    <section id="contact-phone" class="phone-contact mobile">
+      <div class="text">
+        <p>
+          <strong>Contact</strong> <br /><br />
+          <a href="tel:07 62 61 07 41">07 62 61 07 41</a><br />
+          <a href="mailto:nezaagency@gmail.com">nezaagency@gmail.com</a>
+        </p>
+      </div>
+      <h2 class="phone-text">NEZA *</h2>
+    </section>
   </div>
 </template>
 
@@ -264,6 +292,22 @@ export default {
     //     left: event.clientX,
     //   });
     // });
+
+    let translate = 0;
+    const sliderBtn = document.getElementById("sliderBtn");
+
+    sliderBtn.addEventListener("click", function () {
+      console.log("cc");
+      if (translate === 300) {
+        translate = 0;
+      } else {
+        translate += 100;
+      }
+
+      document.getElementById(
+        "slider"
+      ).style.transform = `translateX(-${translate}vw)`;
+    });
   },
 };
 </script>
@@ -313,6 +357,31 @@ export default {
     top: 0;
     right: 8px;
     z-index: -100000;
+    max-height: 100vh;
+  }
+}
+
+section {
+  @media screen and (max-width: 428px) {
+    min-height: 100vh !important;
+    scroll-snap-align: start;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly !important;
+    align-items: center;
+  }
+}
+
+.desktop {
+  @media screen and (max-width: 428px) {
+    display: none !important;
+  }
+}
+
+.mobile {
+  display: none !important;
+  @media screen and (max-width: 428px) {
+    display: block !important;
   }
 }
 
@@ -320,6 +389,12 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  @media screen and (max-width: 428px) {
+    height: 100vh;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+  }
 
   // #arf {
   //   width: 100vw;
@@ -404,7 +479,7 @@ export default {
       }
     }
 
-    a {
+    a:not(.anchor) {
       background-color: $green;
       padding: 15px 25px;
       border: none;
@@ -420,6 +495,11 @@ export default {
       @media screen and (max-width: 428px) {
         margin-top: 42px;
       }
+    }
+
+    a.anchor {
+      font-size: $font-size-normal;
+      text-decoration: none;
     }
 
     .background-line {
@@ -468,58 +548,86 @@ export default {
       display: flex;
       justify-content: space-between;
       margin-top: $margin-x-large;
+      position: relative;
 
       @media screen and (max-width: 1280px) {
         margin-top: $margin-large;
       }
 
       @media screen and (max-width: 428px) {
+        margin-top: 0 !important;
+        width: 100vw;
+        height: 500px;
         flex-direction: column;
-        align-items: center;
-        width: 100%;
+        justify-content: space-evenly !important;
+        justify-content: center;
+        overflow-x: hidden;
       }
 
-      .box {
+      .slider {
         display: flex;
-        flex-direction: column;
-        width: 22%;
-        text-align: center;
-        font-size: $font-size-normal;
+        justify-content: space-between;
+        transition: 400ms ease-in-out;
 
         @media screen and (max-width: 428px) {
-          width: 80%;
-          margin-top: 42px;
+          position: absolute;
+          left: 0;
+          align-items: center;
+          margin-top: 0 !important;
         }
-
-        .title {
-          font-size: 2.8rem;
+        .box {
           display: flex;
           flex-direction: column;
-          align-items: center;
-          font-weight: 300;
-          font-family: $title-font;
+          width: 22%;
+          text-align: center;
+          font-size: $font-size-normal;
 
-          h4 {
-            font-weight: 300;
+          @media screen and (max-width: 428px) {
+            width: 100vw;
+            margin-top: 0 !important;
+            align-items: center;
           }
 
-          .line {
-            height: 1px;
-            background-color: $black;
-            width: 123px;
-            margin-top: $margin-x-small;
-            margin-bottom: $margin-large;
+          .title {
+            font-size: 2.8rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-weight: 300;
+            font-family: $title-font;
+
+            h4 {
+              font-weight: 300;
+            }
+
+            .line {
+              height: 1px;
+              background-color: $black;
+              width: 123px;
+              margin-top: $margin-x-small;
+              margin-bottom: $margin-large;
+
+              @media screen and (max-width: 428px) {
+                margin-bottom: $margin-medium;
+              }
+            }
+          }
+
+          p {
+            font-size: $font-size-normal;
 
             @media screen and (max-width: 428px) {
-              margin-bottom: $margin-medium;
+              width: 80%;
             }
           }
         }
-
-        p {
-          font-size: $font-size-normal;
-        }
       }
+    }
+
+    img {
+      width: 60px;
+      margin-bottom: 100px;
+      margin: 0;
     }
   }
 
@@ -806,6 +914,35 @@ export default {
       width: calc(100vw - (2 * $gutter-size-phone));
       text-align: center;
       line-height: 1.25;
+    }
+  }
+
+  .phone-contact {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    @media screen and (max-width: 428px) {
+      display: flex !important;
+    }
+    .text {
+      text-align: center;
+
+      strong {
+        font-size: $font-size-large;
+      }
+
+      a {
+        text-decoration: none;
+        font-size: $font-size-medium;
+      }
+    }
+
+    h2 {
+      font-size: 13rem;
+      font-family: $title-font;
+      margin-top: 42px;
     }
   }
 }

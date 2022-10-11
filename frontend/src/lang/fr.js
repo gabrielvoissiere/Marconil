@@ -43,7 +43,8 @@ const fr = {
             title: "Pour que la <span class='special_text'>création</span> de votre site ne sois plus un <span class='special_text'>frein</span> dans <br>le <span class='special_text'>développement</span> de <span class='special_text'>vos projets</span>",
         },
         projects: {
-            title: "Quelques-uns de nos projets"
+            title: "Quelques-uns de nos projets",
+            title_phone: "Nos projets"
         },
         value: {
             title: "Nous crééons de la valeur"

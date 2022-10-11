@@ -1,5 +1,5 @@
 <template>
-  <div class="footer">
+  <div class="footer desktop">
     <div id="text">
       <div class="text-box">
         <span v-html="$t('footer.title')"></span>
@@ -34,6 +34,7 @@ export default {
 
 <style lang="scss" scoped>
 @import "../assets/styles/_variables.scss";
+
 .footer {
   margin-top: $margin-medium;
   width: 100vw;
@@ -45,6 +46,11 @@ export default {
   justify-content: center;
   position: relative;
   overflow: hidden;
+
+  @media screen and (max-width: 428px) {
+    height: 0 !important;
+    display: none;
+  }
 
   .phone-text {
     display: none;
