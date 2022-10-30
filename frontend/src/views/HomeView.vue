@@ -510,6 +510,7 @@ section {
         height: 100%;
         z-index: 2;
         background-color: $white;
+        transition: 200ms;
 
         @media screen and (max-width: 428px) {
           background-color: transparent;
@@ -547,6 +548,7 @@ section {
         left: 50%;
         bottom: calc(-102%);
         transform: translateX(-50%);
+        transition: 200ms;
         width: 102%;
         height: 52px;
         background-color: $white;

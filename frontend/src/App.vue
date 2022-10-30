@@ -75,6 +75,10 @@ body.dark {
   img.dark {
     filter: invert(100%);
   }
+
+  .cache {
+    background-color: black !important;
+  }
 }
 
 #app {
