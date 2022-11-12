@@ -1,14 +1,12 @@
 <template>
   <div class="about">
     <section id="above_the_fold" class="above_the_fold">
-      <!-- <router-link to="/about_page" -->
-      <router-link to="/about"
+      <router-link to="/about_page"
         ><div class="line"></div>
         <h2 v-html="$t('about_page.title')"></h2
       ></router-link>
       <h3 v-html="$t('about_page.text')"></h3>
-      <!-- <router-link to="/approche_page" -->
-      <router-link to="/about"
+      <router-link to="/approche_page"
         ><div class="line"></div>
         <h2 v-html="$t('about_page.title_bis')"></h2
       ></router-link>

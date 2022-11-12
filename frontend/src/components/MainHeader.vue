@@ -1,8 +1,8 @@
 <template>
   <div class="header">
-    <div id="progress">
+    <!-- <div id="progress">
       <h3>{{ count_loader }}</h3>
-    </div>
+    </div> -->
     <router-link id="title-box" to="/">
       <h1 v-html="$t('header.title')"></h1>
       <p>ウェブデザイン ウェブ開発</p>

@@ -120,7 +120,7 @@
             </div>
             <div class="right">
               <p>2021</p>
-              <router-link class="project-link" to="/"
+              <router-link class="project-link" to="/urban_vision"
                 >En savoir plus</router-link
               >
             </div>
@@ -128,17 +128,17 @@
         </div>
 
         <div class="grid-elm reveal-2">
-          <img src="../assets/images/png/mac2.png" alt="" />
+          <img src="../assets/images/RESSOURCE/AGENCE_HAUWEL/Plandetravail–16.png" alt="" />
           <div class="legend">
             <div class="left">
               <p>
-                Paula Scher - <span class="special_text">ザイン + ウェ</span>
+                Agence Hauwel - <span class="special_text">ザイン + ウェ</span>
               </p>
-              <p>Artiste portfolio</p>
+              <p>Site internet</p>
             </div>
             <div class="right">
               <p>2022</p>
-              <router-link class="project-link" to="/"
+              <router-link class="project-link" to="/agence_hauwel"
                 >En savoir plus</router-link
               >
             </div>
@@ -154,7 +154,7 @@
             </div>
             <div class="right">
               <p>2022</p>
-              <router-link class="project-link" to="/"
+              <router-link class="project-link" to="/florame"
                 >En savoir plus</router-link
               >
             </div>
