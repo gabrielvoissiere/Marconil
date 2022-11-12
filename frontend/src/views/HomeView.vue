@@ -10,7 +10,7 @@
       <a href="#contact-phone" class="mobile anchor">Contact</a>
       <div class="cache-box">
         <div class="cache"></div>
-        <h2>
+        <h2 id="wave1">
           <span class="special_text">Neza</span>
           <span v-html="$t('home_page.above_the_fold.title')"></span>
         </h2>
@@ -25,11 +25,11 @@
           ></a>
         </p>
       </div>
-      <img
+      <!-- <img
         class="background-line"
         src="../assets/images/svg/line-top.svg"
         alt=""
-      />
+      /> -->
     </section>
 
     <section id="work" class="reveal">
@@ -128,7 +128,10 @@
         </div>
 
         <div class="grid-elm reveal-2">
-          <img src="../assets/images/RESSOURCE/AGENCE_HAUWEL/Plandetravail–16.png" alt="" />
+          <img
+            src="../assets/images/RESSOURCE/AGENCE_HAUWEL/Plandetravail–16.png"
+            alt=""
+          />
           <div class="legend">
             <div class="left">
               <p>
@@ -224,8 +227,6 @@
 </template>
 
 <script>
-// import rallax from "rallax.js";
-// import $ from 'jquery'
 
 export default {
   name: "Home-page",
@@ -234,34 +235,47 @@ export default {
       count_loader: 0,
     };
   },
+  methods: {
+    waveCallback(id, count) {
+      let newSentence = document.getElementById(`${id}`);
+      console.log(count);
+
+      let spanLetter = newSentence.querySelector(`.${id}.num${4}`);
+      // ! voir pourquoi les animations et transition ne marche pas ...
+      spanLetter.style.color = "red"
+
+      // for (let index = 1; index <= count; index++) {
+      //   let spanLetter = newSentence.querySelector(`.${id}.num${index}`);
+      //   spanLetter.style.animation = "apparition 1200ms ease-in-out both";
+      //   // spanLetter.style.animationDelay = `${index}00ms`
+      // }
+    },
+
+    wave(id) {
+      // wave methode
+      let sentence = document.getElementById(id);
+      let letters = sentence.innerText.split("");
+      let newSentence = "";
+
+      // add span for each letter
+      let lettersCount = 0;
+
+      letters.forEach((letter) => {
+        lettersCount++;
+        newSentence =
+          newSentence += `<span class="${id} num${lettersCount}">${letter}</span>`;
+
+        if (letters.length === lettersCount) {
+          sentence.innerHTML = newSentence;
+          this.waveCallback(id, letters.length);
+        }
+      });
+    },
+  },
   mounted() {
     const above_the_fold = document.getElementById("above_the_fold");
     const header = document.querySelector(".header").offsetHeight;
     above_the_fold.style.height = `calc(100vh - ${header}px - 30px)`;
-
-    // const optionsFirstSpeed = { speed: 0.1 };
-    // const optionsSecondSpeed = { speed: 0.075 };
-    // // eslint-disable-next-line
-    // const parallaxCta = rallax(".parallax-cta", optionsFirstSpeed);
-    // // eslint-disable-next-line
-    // const parallaxWorkSubtitle = rallax(
-    //   ".parallax-work-subtitle",
-    //   optionsSecondSpeed
-    // );
-    // // eslint-disable-next-line
-    // const parallaxWorkTitle = rallax(
-    //   ".parallax-work-title",
-    //   optionsSecondSpeed
-    // );
-    // // eslint-disable-next-line
-    // const parallaxWho = rallax(".parallax-who", optionsFirstSpeed);
-    // // eslint-disable-next-line
-    // const parallaxProjectTitle = rallax(
-    //   ".parallax-project-title",
-    //   optionsFirstSpeed
-    // );
-    // // eslint-disable-next-line
-    // // const parallaxValueTitle = rallax(".parallax-value-title", optionsFirstSpeed);
 
     const threshold = 0.1;
     const options = {
@@ -287,13 +301,6 @@ export default {
       observer.observe(target);
     });
 
-    // $(document).on("mousemove", (event) => {
-    //   $(".cursor").css({
-    //     top: event.clientY,
-    //     left: event.clientX,
-    //   });
-    // });
-
     let translate = 0;
     const sliderBtn = document.getElementById("sliderBtn");
 
@@ -309,6 +316,8 @@ export default {
         "slider"
       ).style.transform = `translateX(-${translate}vw)`;
     });
+
+    this.wave("wave1");
   },
 };
 </script>
@@ -386,6 +395,18 @@ section {
   }
 }
 
+@keyframes apparition {
+  0% {
+    transform: translateY(110px);
+  }
+  50% {
+    transform: translateY(-40px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
 .home {
   display: flex;
   flex-direction: column;
@@ -451,34 +472,25 @@ section {
     }
   }
 
-  @keyframes apparition {
-    0% {
-      transform: translateY(110px);
-    }
-    100% {
-      transform: translateY(0);
-    }
-  }
+  // @keyframes apparition_link {
+  //   0% {
+  //     transform: translateY(100%);
+  //   }
+  //   100% {
+  //     transform: translateY(0);
+  //   }
+  // }
 
-  @keyframes apparition_link {
-    0% {
-      transform: translateY(100%);
-    }
-    100% {
-      transform: translateY(0);
-    }
-  }
-
-  @keyframes apparition_line {
-    0% {
-      opacity: 0;
-      transform: translate(-50%, 100px);
-    }
-    100% {
-      opacity: 1;
-      transform: translate(-50%, 0);
-    }
-  }
+  // @keyframes apparition_line {
+  //   0% {
+  //     opacity: 0;
+  //     transform: translate(-50%, 100px);
+  //   }
+  //   100% {
+  //     opacity: 1;
+  //     transform: translate(-50%, 0);
+  //   }
+  // }
 
   #above_the_fold {
     display: flex;
@@ -523,7 +535,8 @@ section {
         font-weight: 500;
         margin-top: 50px;
 
-        animation: apparition 2000ms ease-in-out 6500ms both;
+        // animation: apparition 1200ms ease-in-out both;
+        // animation: apparition 2000ms ease-in-out 6500ms both;
 
         @media screen and (max-width: 1280px) {
           font-size: 3.25rem;
@@ -556,7 +569,8 @@ section {
       }
 
       p {
-        animation: apparition_link 2000ms ease-in-out 7000ms both;
+        // animation: apparition_link 2000ms ease-in-out 7000ms both;
+        animation: apparition_link 2000ms ease-in-out both;
         padding: 15px 25px;
         background-color: $green;
 

@@ -80,7 +80,6 @@ export default {
   watch: {
     // eslint-disable-next-line
     $route(to, from) {
-      console.log(to.fullPath);
       this.current_page = to.fullPath;
     },
   },
