@@ -33,7 +33,7 @@
     </section>
 
     <section id="work" class="reveal">
-      <h2 class="parallax-work-title" v-html="$t('home_page.work.title')"></h2>
+      <h2 id="wave2" class="parallax-work-title" v-html="$t('home_page.work.title')"></h2>
       <h3
         class="parallax-work-subtitle"
         v-html="$t('home_page.work.subtitle')"
@@ -236,38 +236,58 @@ export default {
     };
   },
   methods: {
-    waveCallback(id, count) {
+    waveCallback(id, count, duration = 200, delay = 20) {
+      let newLetter = document.querySelectorAll(`#${id} span`)
       let newSentence = document.getElementById(`${id}`);
       console.log(count);
+      
+      newLetter.forEach(letter => {
+        letter.style.display = 'inline-block'
+      });
 
-      let spanLetter = newSentence.querySelector(`.${id}.num${4}`);
-      // ! voir pourquoi les animations et transition ne marche pas ...
-      spanLetter.style.color = "red"
+      const newspaperSpinning = [
+        { 
+          transform: 'translateY(200%)' 
+        },
+        { 
+          transform: 'translateY(0px)' 
+        }
+      ];
 
-      // for (let index = 1; index <= count; index++) {
-      //   let spanLetter = newSentence.querySelector(`.${id}.num${index}`);
-      //   spanLetter.style.animation = "apparition 1200ms ease-in-out both";
-      //   // spanLetter.style.animationDelay = `${index}00ms`
-      // }
+      let newspaperTiming = {
+        duration: duration,
+        iterations: 1,
+        delay: 0,
+        fill: 'both'
+      }
+
+      for (let index = 1; index <= count; index++) {
+        let spanLetter = newSentence.querySelector(`.${id}.num${index}`);
+        spanLetter.animate(newspaperSpinning, newspaperTiming)
+        newspaperTiming.delay += delay
+      }
     },
 
-    wave(id) {
+    wave(id, duration = 200, delay = 20) {
       // wave methode
       let sentence = document.getElementById(id);
       let letters = sentence.innerText.split("");
       let newSentence = "";
 
+      sentence.style.overflow = "hidden"
+
       // add span for each letter
       let lettersCount = 0;
 
       letters.forEach((letter) => {
+        console.log(letter);
         lettersCount++;
         newSentence =
-          newSentence += `<span class="${id} num${lettersCount}">${letter}</span>`;
+          newSentence += `<span class="${id} num${lettersCount}">${letter === ' ' ? '&thinsp;' : letter}</span>`;
 
         if (letters.length === lettersCount) {
           sentence.innerHTML = newSentence;
-          this.waveCallback(id, letters.length);
+          this.waveCallback(id, letters.length, duration, delay);
         }
       });
     },
@@ -317,7 +337,7 @@ export default {
       ).style.transform = `translateX(-${translate}vw)`;
     });
 
-    this.wave("wave1");
+    this.wave("wave1", 300, 20);
   },
 };
 </script>
