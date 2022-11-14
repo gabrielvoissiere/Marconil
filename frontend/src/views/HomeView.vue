@@ -415,18 +415,6 @@ section {
   }
 }
 
-@keyframes apparition {
-  0% {
-    transform: translateY(110px);
-  }
-  50% {
-    transform: translateY(-40px);
-  }
-  100% {
-    transform: translateY(0);
-  }
-}
-
 .home {
   display: flex;
   flex-direction: column;

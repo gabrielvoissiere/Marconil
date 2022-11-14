@@ -55,19 +55,30 @@
       </div>
     </div>
 
-<section id="contact" class="reveal desktop">
-  <div class="title-box">
-    <div class="title reveal-1">
-      <img class="dark" src="../assets/images/svg/right-arrow.svg" alt="" />
-      <a
-        href="mailto:nezaagency@gmail.com"
-        v-html="$t('home_page.contact.title')"
-      ></a>
-    </div>
-    <div class="line reveal-2" />
-  </div>
-  <h3 class="reveal-3" v-html="$t('home_page.contact.subtitle')"></h3>
-</section>
+    <section id="contact" class="reveal desktop">
+      <div class="title-box">
+        <div class="title reveal-1">
+          <img class="dark" src="../assets/images/svg/right-arrow.svg" alt="" />
+          <a
+            href="mailto:nezaagency@gmail.com"
+            v-html="$t('home_page.contact.title')"
+          ></a>
+        </div>
+        <div class="line reveal-2" />
+      </div>
+      <h3 class="reveal-3" v-html="$t('home_page.contact.subtitle')"></h3>
+    </section>
+
+    <section id="contact-phone" class="phone-contact mobile">
+      <div class="text">
+        <p>
+          <strong>Contact</strong> <br /><br />
+          <a href="tel:07 62 61 07 41">07 62 61 07 41</a><br />
+          <a href="mailto:nezaagency@gmail.com">nezaagency@gmail.com</a>
+        </p>
+      </div>
+      <h2 class="phone-text">NEZA *</h2>
+    </section>
   </section>
 </template>
 
@@ -95,6 +106,7 @@ export default {
     margin-top: calc(1.5 * $margin-xx-large);
 
     .title {
+      width: 100%;
       margin-bottom: calc(1 * $margin-xx-large);
       display: flex;
       flex-direction: column;
@@ -160,13 +172,19 @@ export default {
     #grid-chart {
       margin-top: $margin-xx-large;
       display: grid;
+      column-gap: 20px;
       grid-template-columns: repeat(3, 1fr);
       grid-template-rows: repeat(auto, 1fr);
+
+      img {
+        width: 100%;
+      }
     }
 
     #grid-results {
       margin-top: calc(1.5 * $margin-large);
       display: grid;
+      column-gap: 20px;
       grid-template-columns: repeat(2, 1fr);
       grid-template-rows: repeat(auto, 1fr);
 
@@ -174,6 +192,10 @@ export default {
         width: 25%;
         align-self: center;
         margin-top: calc(2 * $margin-x-large);
+      }
+
+      img {
+        width: 100%;
       }
     }
 
@@ -189,67 +211,101 @@ export default {
         flex-direction: column;
         row-gap: calc(1.5 * $margin-large);
       }
+
+      img {
+        width: 100%;
+      }
     }
   }
 
-#contact {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin-bottom: calc($margin-large * 3);
-  width: calc(100vw - (2 * $gutter-size));
-  transition: 300ms ease-in-out;
-
-  @media screen and (max-width: 428px) {
-    width: calc(100vw - (2 * $gutter-size-phone));
-  }
-
-  h3 {
-    font-size: $font-size-medium;
-    color: $green;
-    text-align: left;
-    margin-left: 118px;
-  }
-
-  .title-box {
-    font-size: $font-size-large;
+  #contact {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    justify-content: center;
+    margin-top: calc($margin-large * 3);
+    margin-bottom: calc($margin-large * 3);
+    width: calc(100vw - (2 * $gutter-size));
+    transition: 300ms ease-in-out;
 
-    .title {
+    @media screen and (max-width: 428px) {
+      width: calc(100vw - (2 * $gutter-size-phone));
+    }
+
+    h3 {
+      font-size: $font-size-medium;
+      color: $green;
+      text-align: left;
+      margin-left: 118px;
+    }
+
+    .title-box {
+      font-size: $font-size-large;
       display: flex;
-      font-family: $title-font;
+      flex-direction: column;
+      align-items: flex-start;
+
+      .title {
+        display: flex;
+        font-family: $title-font;
+
+        a {
+          text-decoration: none;
+          font-size: 1.5em;
+        }
+
+        img {
+          width: 88px;
+          margin-right: $margin-normal;
+          transition: 300ms ease-in-out;
+        }
+      }
+
+      .line {
+        height: 1px;
+        background-color: $black;
+        width: 247px;
+        margin-top: $margin-x-small;
+        margin-bottom: $margin-small;
+        margin-left: 118px;
+      }
+    }
+
+    &:hover {
+      transform: translateX(2%);
+    }
+
+    &:hover img {
+      transform: translateX(-20%);
+    }
+  }
+
+  .phone-contact {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    @media screen and (max-width: 428px) {
+      display: flex !important;
+    }
+    .text {
+      text-align: center;
+
+      strong {
+        font-size: $font-size-large;
+      }
 
       a {
         text-decoration: none;
-        font-size: 1.5em;
-      }
-
-      img {
-        width: 88px;
-        margin-right: $margin-normal;
-        transition: 300ms ease-in-out;
+        font-size: $font-size-medium;
       }
     }
 
-    .line {
-      height: 1px;
-      background-color: $black;
-      width: 247px;
-      margin-top: $margin-x-small;
-      margin-bottom: $margin-small;
-      margin-left: 118px;
+    h2 {
+      font-size: 13rem;
+      font-family: $title-font;
+      margin-top: 42px;
     }
   }
-
-  &:hover {
-    transform: translateX(2%);
-  }
-
-  &:hover img {
-    transform: translateX(-20%);
-  }
-}
 }
 </style>
