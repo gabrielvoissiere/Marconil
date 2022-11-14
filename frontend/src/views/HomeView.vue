@@ -9,7 +9,7 @@
     <section id="above_the_fold">
       <a href="#contact-phone" class="mobile anchor">Contact</a>
       <div class="cache-box">
-        <div class="cache"></div>
+        <!-- <div class="cache"></div> -->
         <h2 id="wave1">
           <span class="special_text">Neza</span>
           <span v-html="$t('home_page.above_the_fold.title')"></span>
@@ -33,7 +33,11 @@
     </section>
 
     <section id="work" class="reveal">
-      <h2 id="wave2" class="parallax-work-title" v-html="$t('home_page.work.title')"></h2>
+      <h2
+        id="wave2"
+        class="parallax-work-title"
+        v-html="$t('home_page.work.title')"
+      ></h2>
       <h3
         class="parallax-work-subtitle"
         v-html="$t('home_page.work.subtitle')"
@@ -227,7 +231,6 @@
 </template>
 
 <script>
-
 export default {
   name: "Home-page",
   data() {
@@ -237,34 +240,38 @@ export default {
   },
   methods: {
     waveCallback(id, count, duration = 200, delay = 20) {
-      let newLetter = document.querySelectorAll(`#${id} span`)
+      let newLetter = document.querySelectorAll(`#${id} span`);
       let newSentence = document.getElementById(`${id}`);
       console.log(count);
-      
-      newLetter.forEach(letter => {
-        letter.style.display = 'inline-block'
+
+      newLetter.forEach((letter) => {
+        letter.style.display = "inline-block";
       });
 
       const newspaperSpinning = [
-        { 
-          transform: 'translateY(200%)' 
+        {
+          transform: "translateY(200%)",
+          opacity: 0
         },
-        { 
-          transform: 'translateY(0px)' 
-        }
+        {
+          transform: "translateY(0px)",
+          opacity: 1
+        },
       ];
 
       let newspaperTiming = {
         duration: duration,
         iterations: 1,
         delay: 0,
-        fill: 'both'
-      }
+        fill: "both",
+        // ! vitesse en ease-in-out 
+        timing: "ease-in-out"
+      };
 
       for (let index = 1; index <= count; index++) {
         let spanLetter = newSentence.querySelector(`.${id}.num${index}`);
-        spanLetter.animate(newspaperSpinning, newspaperTiming)
-        newspaperTiming.delay += delay
+        spanLetter.animate(newspaperSpinning, newspaperTiming);
+        newspaperTiming.delay += delay;
       }
     },
 
@@ -274,16 +281,15 @@ export default {
       let letters = sentence.innerText.split("");
       let newSentence = "";
 
-      sentence.style.overflow = "hidden"
-
       // add span for each letter
       let lettersCount = 0;
 
       letters.forEach((letter) => {
         console.log(letter);
         lettersCount++;
-        newSentence =
-          newSentence += `<span class="${id} num${lettersCount}">${letter === ' ' ? '&thinsp;' : letter}</span>`;
+        newSentence = newSentence += `<span class="${id} num${lettersCount}">${
+          letter === " " ? "&thinsp;" : letter
+        }</span>`;
 
         if (letters.length === lettersCount) {
           sentence.innerHTML = newSentence;
@@ -337,7 +343,7 @@ export default {
       ).style.transform = `translateX(-${translate}vw)`;
     });
 
-    this.wave("wave1", 300, 20);
+    this.wave("wave1", 500, 20);
   },
 };
 </script>
