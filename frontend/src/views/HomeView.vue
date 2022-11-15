@@ -25,11 +25,11 @@
           ></a>
         </p>
       </div>
-      <!-- <img
+      <img
         class="background-line"
         src="../assets/images/svg/line-top.svg"
         alt=""
-      /> -->
+      />
     </section>
 
     <section id="work" class="reveal">
@@ -110,6 +110,12 @@
           v-html="$t('home_page.projects.title_phone')"
         ></h2>
         <div class="line" />
+      </div>
+
+      <div class="mobile mobile-projetcs">
+        <h3>urban vision</h3>
+        <h3>agence hauwel</h3>
+        <h3>florame</h3>
       </div>
 
       <div class="grid reveal parallax-project-title desktop">
@@ -239,53 +245,78 @@ export default {
     };
   },
   methods: {
-    waveCallback(id, count, duration = 200, delay = 20) {
+    waveCallback(
+      id,
+      count,
+      transform,
+      duration,
+      startDelay,
+      delay,
+      easing,
+      opacity
+    ) {
       let newLetter = document.querySelectorAll(`#${id} span`);
       let newSentence = document.getElementById(`${id}`);
-      console.log(count);
 
       newLetter.forEach((letter) => {
         letter.style.display = "inline-block";
       });
 
-      const newspaperSpinning = [
+      const waveEffect = [
         {
-          transform: "translateY(200%)",
-          opacity: 0
+          transform: `translateY(${transform})`,
+          opacity: opacity === true ? 0 : 1,
         },
         {
           transform: "translateY(0px)",
-          opacity: 1
+          opacity: opacity === true ? 1 : 1,
         },
       ];
 
-      let newspaperTiming = {
+      let waveTiming = {
         duration: duration,
+        delay: startDelay,
+        easing: easing,
         iterations: 1,
-        delay: 0,
         fill: "both",
-        // ! vitesse en ease-in-out 
-        timing: "ease-in-out"
       };
 
       for (let index = 1; index <= count; index++) {
         let spanLetter = newSentence.querySelector(`.${id}.num${index}`);
-        spanLetter.animate(newspaperSpinning, newspaperTiming);
-        newspaperTiming.delay += delay;
+        const waveKeyframe = new KeyframeEffect(
+          spanLetter,
+          waveEffect,
+          waveTiming
+        );
+        const waveAnimation = new Animation(waveKeyframe, document.timeline);
+        waveAnimation.play();
+        waveTiming.delay += delay;
       }
     },
 
-    wave(id, duration = 200, delay = 20) {
+    wave(
+      id,
+      transform = "200px",
+      duration = 500,
+      startDelay = 200,
+      delay = 20,
+      easing = "linear",
+      opacity = false,
+      overflow = true
+    ) {
       // wave methode
       let sentence = document.getElementById(id);
       let letters = sentence.innerText.split("");
       let newSentence = "";
 
+      if (overflow) {
+        sentence.style.overflow = "hidden";
+      }
+
       // add span for each letter
       let lettersCount = 0;
 
       letters.forEach((letter) => {
-        console.log(letter);
         lettersCount++;
         newSentence = newSentence += `<span class="${id} num${lettersCount}">${
           letter === " " ? "&thinsp;" : letter
@@ -293,7 +324,16 @@ export default {
 
         if (letters.length === lettersCount) {
           sentence.innerHTML = newSentence;
-          this.waveCallback(id, letters.length, duration, delay);
+          this.waveCallback(
+            id,
+            letters.length,
+            transform,
+            duration,
+            startDelay,
+            delay,
+            easing,
+            opacity
+          );
         }
       });
     },
@@ -343,7 +383,25 @@ export default {
       ).style.transform = `translateX(-${translate}vw)`;
     });
 
-    this.wave("wave1", 500, 20);
+    let isPageLoaded = document
+      .getElementById("progress")
+      .classList.contains("loaded");
+
+    if (window.screen.width > 428) {
+      let wave1 = document.getElementById(`wave1`).offsetHeight;
+      console.log(wave1);
+      this.wave(
+        "wave1",
+        `${wave1}px`,
+        1200,
+        isPageLoaded ? 200 : 6200,
+        0,
+        "cubic-bezier(0,0,.09,1)",
+        false,
+        true
+      );
+      // target / transform (% ou px) / duration (ms) / delay before animation / delay between letter (ms) / easing / opacity / overflow
+    }
   },
 };
 </script>
@@ -757,6 +815,7 @@ section {
 
     @media screen and (max-width: 428px) {
       width: calc(100vw - (2 * $gutter-size-phone));
+      justify-content: flex-start !important;
     }
 
     h2 {
@@ -767,6 +826,7 @@ section {
         text-align: left;
         text-transform: uppercase;
         line-height: 1.25;
+        margin-top: $margin-x-large !important;
       }
     }
 
@@ -812,6 +872,10 @@ section {
 
     @media screen and (max-width: 428px) {
       width: calc(100vw - (2 * $gutter-size-phone));
+      display: flex !important;
+      flex-direction: column !important;
+      justify-content: space-between !important;
+      align-items: flex-start !important;
     }
 
     .title {
@@ -820,6 +884,10 @@ section {
       flex-direction: column;
       align-items: flex-start;
       font-family: $title-font;
+
+      @media screen and (max-width: 428px) {
+        margin-top: $margin-large !important;
+      }
 
       h2 {
         font-weight: 300;
@@ -832,6 +900,14 @@ section {
         margin-top: $margin-x-small;
         margin-bottom: $margin-medium;
       }
+    }
+
+    .mobile-projetcs {
+      text-transform: uppercase;
+      font-family: $title-font;
+      font-size: $font-size-large;
+      font-weight: 300;
+        margin-bottom: $margin-large !important;
     }
 
     .grid {
@@ -1035,7 +1111,7 @@ section {
   .phone-contact {
     display: none;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between !important;
     align-items: center;
 
     @media screen and (max-width: 428px) {
@@ -1043,6 +1119,7 @@ section {
     }
     .text {
       text-align: center;
+      margin-top: $margin-xx-large !important;
 
       strong {
         font-size: $font-size-large;

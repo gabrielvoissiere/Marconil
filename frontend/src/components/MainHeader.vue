@@ -1,8 +1,8 @@
 <template>
   <div class="header">
-    <!-- <div id="progress">
+    <div id="progress">
       <h3>{{ count_loader }}</h3>
-    </div> -->
+    </div>
     <router-link id="title-box" to="/">
       <h1 v-html="$t('header.title')"></h1>
       <p>ウェブデザイン ウェブ開発</p>
@@ -73,6 +73,9 @@ export default {
         this.count_loader++;
         if (this.count_loader === 100) {
           clearInterval(loader);
+          setTimeout(() => {
+            document.getElementById("progress").classList.add("loaded");
+          }, 500);
         }
       }, 25);
     }, 4000);
@@ -135,10 +138,10 @@ export default {
   justify-content: space-between;
   width: calc(100vw - ($gutter-size * 2));
 
-@media screen and (max-width: 428px) {
-  height: 0 !important;
-  display: none;
-}
+  @media screen and (max-width: 428px) {
+    height: 0 !important;
+    display: none;
+  }
 }
 
 #title-box {
