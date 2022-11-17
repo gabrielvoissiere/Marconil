@@ -237,106 +237,13 @@
 </template>
 
 <script>
+import { wave } from "simply_wave"
 export default {
   name: "Home-page",
   data() {
     return {
       count_loader: 0,
     };
-  },
-  methods: {
-    waveCallback(
-      id,
-      count,
-      transform,
-      duration,
-      startDelay,
-      delay,
-      easing,
-      opacity
-    ) {
-      let newLetter = document.querySelectorAll(`#${id} span`);
-      let newSentence = document.getElementById(`${id}`);
-
-      newLetter.forEach((letter) => {
-        letter.style.display = "inline-block";
-      });
-
-      const waveEffect = [
-        {
-          transform: `translateY(${transform})`,
-          opacity: opacity === true ? 0 : 1,
-        },
-        {
-          transform: "translateY(0px)",
-          opacity: opacity === true ? 1 : 1,
-        },
-      ];
-
-      let waveTiming = {
-        duration: duration,
-        delay: startDelay,
-        easing: easing,
-        iterations: 1,
-        fill: "both",
-      };
-
-      for (let index = 1; index <= count; index++) {
-        let spanLetter = newSentence.querySelector(`.${id}.num${index}`);
-        const waveKeyframe = new KeyframeEffect(
-          spanLetter,
-          waveEffect,
-          waveTiming
-        );
-        const waveAnimation = new Animation(waveKeyframe, document.timeline);
-        waveAnimation.play();
-        waveTiming.delay += delay;
-      }
-    },
-
-    wave(
-      id,
-      transform = "200px",
-      duration = 500,
-      startDelay = 200,
-      delay = 20,
-      easing = "linear",
-      opacity = false,
-      overflow = true
-    ) {
-      // wave methode
-      let sentence = document.getElementById(id);
-      let letters = sentence.innerText.split("");
-      let newSentence = "";
-
-      if (overflow) {
-        sentence.style.overflow = "hidden";
-      }
-
-      // add span for each letter
-      let lettersCount = 0;
-
-      letters.forEach((letter) => {
-        lettersCount++;
-        newSentence = newSentence += `<span class="${id} num${lettersCount}">${
-          letter === " " ? "&thinsp;" : letter
-        }</span>`;
-
-        if (letters.length === lettersCount) {
-          sentence.innerHTML = newSentence;
-          this.waveCallback(
-            id,
-            letters.length,
-            transform,
-            duration,
-            startDelay,
-            delay,
-            easing,
-            opacity
-          );
-        }
-      });
-    },
   },
   mounted() {
     const above_the_fold = document.getElementById("above_the_fold");
@@ -389,18 +296,18 @@ export default {
 
     if (window.screen.width > 428) {
       let wave1 = document.getElementById(`wave1`).offsetHeight;
-      console.log(wave1);
-      this.wave(
-        "wave1",
-        `${wave1}px`,
-        1200,
-        isPageLoaded ? 200 : 6200,
-        0,
-        "cubic-bezier(0,0,.09,1)",
-        false,
-        true
-      );
-      // target / transform (% ou px) / duration (ms) / delay before animation / delay between letter (ms) / easing / opacity / overflow
+
+      const waveOptions = {
+        target: "wave1",
+        transform: `${wave1}px`,
+        duration: 1200,
+        animationDelay: isPageLoaded ? 200 : 6200,
+        letterDelay: 0,
+        easing: "cubic-bezier(0,0,.09,1)",
+        overflow: true
+      }
+
+      wave(waveOptions)
     }
   },
 };
