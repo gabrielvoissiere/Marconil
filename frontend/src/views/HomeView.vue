@@ -6,8 +6,9 @@
       class="phone-line"
     />
 
+    <a href="#contact-phone" class="mobile anchor">Contact</a>
+
     <section id="above_the_fold">
-      <a href="#contact-phone" class="mobile anchor">Contact</a>
       <div class="cache-box">
         <!-- <div class="cache"></div> -->
         <h2 id="wave1">
@@ -16,7 +17,6 @@
         </h2>
       </div>
       <div class="cache-box-link">
-        <div class="cache"></div>
         <p>
           <a
             href="mailto:nezaagency@gmail.com"
@@ -237,7 +237,7 @@
 </template>
 
 <script>
-import { wave } from "simply_wave"
+import { wave } from "simply_wave";
 export default {
   name: "Home-page",
   data() {
@@ -277,8 +277,9 @@ export default {
     let translate = 0;
     const sliderBtn = document.getElementById("sliderBtn");
 
+    document.getElementById("slider").style.transform = `translateX(-18px)`;
+
     sliderBtn.addEventListener("click", function () {
-      console.log("cc");
       if (translate === 300) {
         translate = 0;
       } else {
@@ -287,7 +288,7 @@ export default {
 
       document.getElementById(
         "slider"
-      ).style.transform = `translateX(-${translate}vw)`;
+      ).style.transform = `translateX(calc(-${translate}vw - 18px))`;
     });
 
     let isPageLoaded = document
@@ -304,10 +305,10 @@ export default {
         animationDelay: isPageLoaded ? 200 : 6200,
         letterDelay: 0,
         easing: "cubic-bezier(0,0,.09,1)",
-        overflow: true
-      }
+        overflow: true,
+      };
 
-      wave(waveOptions)
+      wave(waveOptions);
     }
   },
 };
@@ -386,6 +387,14 @@ section {
   }
 }
 
+a.anchor {
+  font-size: $font-size-normal;
+  text-decoration: none;
+  top: 42px;
+  left: 36px;
+  position: absolute;
+}
+
 .home {
   display: flex;
   flex-direction: column;
@@ -396,36 +405,6 @@ section {
     overflow-y: scroll;
     scroll-snap-type: y mandatory;
   }
-
-  // #arf {
-  //   width: 100vw;
-  //   height: 100vh;
-  //   position: fixed;
-  //   top: 0;
-  //   left: 0;
-  //   background-color: $white;
-  //   z-index: -1000000;
-  //   overflow: hidden;
-  //   display: flex;
-  //   flex-direction: column;
-  //   justify-content: center;
-  //   align-items: center;
-  //   opacity: 0;
-
-  //   h3 {
-  //     width: 80%;
-  //     text-align: center;
-  //   }
-
-  //   img {
-  //     width: 80%;
-  //   }
-
-  //   @media screen and (max-width: 1160px) {
-  //     opacity: 1;
-  //     z-index: 1000000;
-  //   }
-  // }
 
   #line-background {
     position: absolute;
@@ -451,26 +430,6 @@ section {
     }
   }
 
-  // @keyframes apparition_link {
-  //   0% {
-  //     transform: translateY(100%);
-  //   }
-  //   100% {
-  //     transform: translateY(0);
-  //   }
-  // }
-
-  // @keyframes apparition_line {
-  //   0% {
-  //     opacity: 0;
-  //     transform: translate(-50%, 100px);
-  //   }
-  //   100% {
-  //     opacity: 1;
-  //     transform: translate(-50%, 0);
-  //   }
-  // }
-
   #above_the_fold {
     display: flex;
     flex-direction: column;
@@ -478,12 +437,6 @@ section {
     align-items: flex-start;
     position: relative;
     width: calc(100vw - (2 * $gutter-size));
-
-    a.anchor {
-      font-size: $font-size-normal;
-      text-decoration: none;
-      margin-bottom: 42px;
-    }
 
     @media screen and (max-width: 428px) {
       width: calc(100vw - (2 * $gutter-size-phone));
@@ -593,6 +546,7 @@ section {
 
   #work {
     width: calc(100vw - (2 * $gutter-size));
+    position: relative;
 
     @media screen and (max-width: 428px) {
       width: calc(100vw - (2 * $gutter-size-phone));
@@ -636,7 +590,7 @@ section {
 
       @media screen and (max-width: 428px) {
         margin-top: 0 !important;
-        width: 100vw;
+        width: 100%;
         height: 500px;
         flex-direction: column;
         justify-content: space-evenly !important;
@@ -706,8 +660,8 @@ section {
 
     img {
       width: 60px;
-      margin-bottom: 100px;
-      margin: 0;
+      position: absolute;
+      bottom: 200px;
     }
   }
 
@@ -806,6 +760,10 @@ section {
         width: 260px;
         margin-top: $margin-x-small;
         margin-bottom: $margin-medium;
+
+        @media screen and (max-width: 428px) {
+          width: 160px;
+        }
       }
     }
 
@@ -814,7 +772,7 @@ section {
       font-family: $title-font;
       font-size: $font-size-large;
       font-weight: 300;
-        margin-bottom: $margin-large !important;
+      margin-bottom: $margin-large !important;
     }
 
     .grid {

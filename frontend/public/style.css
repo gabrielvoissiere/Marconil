@@ -94,6 +94,7 @@ body {
     align-items: center;
     transition: 200ms;
     font-family: 'Montserrat-regular', Arial, Helvetica, sans-serif;
+    overflow-x: hidden;
 }
 
 #description {
