@@ -390,8 +390,8 @@ section {
 a.anchor {
   font-size: $font-size-normal;
   text-decoration: none;
-  top: 42px;
-  left: 36px;
+  top: 20px;
+  left: 18px;
   position: absolute;
 }
 
@@ -772,7 +772,7 @@ a.anchor {
       font-family: $title-font;
       font-size: $font-size-large;
       font-weight: 300;
-      margin-bottom: $margin-large !important;
+      margin-bottom: calc($margin-xx-large * 1.5) !important;
     }
 
     .grid {
