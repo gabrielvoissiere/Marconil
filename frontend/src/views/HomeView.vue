@@ -661,7 +661,7 @@ a.anchor {
     img {
       width: 60px;
       position: absolute;
-      bottom: 200px;
+      bottom: 150px;
     }
   }
 
