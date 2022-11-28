@@ -772,7 +772,7 @@ a.anchor {
       font-family: $title-font;
       font-size: $font-size-large;
       font-weight: 300;
-      margin-bottom: calc($margin-xx-large * 1.5) !important;
+      margin-bottom: $margin-x-large !important;
     }
 
     .grid {
