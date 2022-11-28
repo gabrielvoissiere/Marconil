@@ -134,8 +134,9 @@ export default {
         align-self: center;
 
         & + p {
-          width: 50%;
+          width: 80%;
           margin-top: calc(1.5 * $margin-large);
+          font-size: calc($font-size-medium * 1.25);
         }
       }
     }

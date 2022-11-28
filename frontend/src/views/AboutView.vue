@@ -1,12 +1,12 @@
 <template>
   <div class="about">
     <section id="above_the_fold" class="above_the_fold">
-      <router-link to="/about_page"
+      <router-link id="link1" to="/about_page"
         ><div class="line"></div>
         <h2 v-html="$t('about_page.title')"></h2
       ></router-link>
-      <h3 v-html="$t('about_page.text')"></h3>
-      <router-link to="/approche_page"
+      <h3 id="wave" v-html="$t('about_page.text')"></h3>
+      <router-link id="link2" to="/approche_page"
         ><div class="line"></div>
         <h2 v-html="$t('about_page.title_bis')"></h2
       ></router-link>
@@ -46,6 +46,21 @@ export default {
     const above_the_fold = document.getElementById("above_the_fold");
     const header = document.querySelector(".header").offsetHeight;
     above_the_fold.style.height = `calc(100vh - ${header}px - 30px)`;
+
+    setTimeout(() => {
+      document.getElementById("link1").style.transform = "translate(0)";
+      document.getElementById("link1").style.opacity = "1";
+    }, 200);
+
+    setTimeout(() => {
+      document.getElementById("wave").style.transform = "translate(0)";
+      document.getElementById("wave").style.opacity = "1";
+    }, 400);
+
+    setTimeout(() => {
+      document.getElementById("link2").style.transform = "translate(0)";
+      document.getElementById("link2").style.opacity = "1";
+    }, 600);
   },
 };
 </script>
@@ -102,6 +117,16 @@ export default {
     h3 {
       align-self: flex-start;
       font-size: 2.8rem;
+      transform: translateY(100px);
+      opacity: 0;
+      transition: 1200ms ease-out;
+    }
+
+    #link1,
+    #link2 {
+      transform: translateY(100px);
+      opacity: 0;
+      transition: 1200ms ease-out;
     }
   }
 
