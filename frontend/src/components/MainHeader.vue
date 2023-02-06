@@ -138,6 +138,9 @@ export default {
   justify-content: space-between;
   width: calc(100vw - ($gutter-size * 2));
 
+  // block css
+  display: none !important;
+
   @media screen and (max-width: 428px) {
     height: 0 !important;
     display: none;

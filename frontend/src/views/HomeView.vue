@@ -400,6 +400,22 @@ a.anchor {
   flex-direction: column;
   align-items: center;
 
+  * {
+    // block css
+    display: none !important;
+  }
+
+  &::after {
+    content: "Site en cour de maintenance, désolé de la gêne occasionner.";
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 32px;
+  }
+
   @media screen and (max-width: 428px) {
     height: 100vh;
     overflow-y: scroll;

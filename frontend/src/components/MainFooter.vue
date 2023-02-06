@@ -47,6 +47,9 @@ export default {
   position: relative;
   overflow: hidden;
 
+  // block css
+  display: none !important;
+
   @media screen and (max-width: 428px) {
     height: 0 !important;
     display: none;
